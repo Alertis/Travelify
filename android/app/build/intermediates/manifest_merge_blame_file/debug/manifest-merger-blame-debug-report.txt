@@ -1,0 +1,220 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.travelify2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="29" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:4:3-75
+11-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:4:20-73
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:2:3-64
+12-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:2:20-62
+13    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+13-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:5:3-72
+13-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:5:20-70
+14    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+14-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:6:3-71
+14-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:6:20-69
+15    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+15-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:7:3-69
+15-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:7:20-67
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:8:3-63
+16-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:8:20-61
+17    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- These require runtime permissions on M -->
+17-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:9:3-77
+17-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:9:20-75
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:11:3-78
+18-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:11:20-76
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:12:3-76
+19-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:12:20-74
+20    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+20-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:13:3-82
+20-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:13:20-80
+21    <uses-permission android:name="android.permission.CAMERA" />
+21-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:14:3-62
+21-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:14:20-60
+22    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+22-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:15:3-68
+22-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:15:20-66
+23    <uses-permission android:name="android.permission.READ_CONTACTS" />
+23-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:16:3-69
+23-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:16:20-67
+24    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+24-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:17:3-70
+24-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:17:20-68
+25    <uses-permission android:name="android.permission.READ_CALENDAR" />
+25-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:18:3-69
+25-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:18:20-67
+26    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+26-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:19:3-70
+26-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:19:20-68
+27    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+27-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:20:3-77
+27-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:20:20-75
+28    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+28-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:21:3-78
+28-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:21:20-76
+29    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+29-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:22:3-70
+29-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:22:20-68
+30    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+30-->[com.facebook.flipper:flipper:0.54.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/1c7787ec82631e0394972c76bdabe608/flipper-0.54.0/AndroidManifest.xml:16:5-76
+30-->[com.facebook.flipper:flipper:0.54.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/1c7787ec82631e0394972c76bdabe608/flipper-0.54.0/AndroidManifest.xml:16:22-73
+31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+31-->[:expo-updates] /home/alertis/Projeler/travelify/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
+31-->[:expo-updates] /home/alertis/Projeler/travelify/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
+32    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+32-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:5-77
+32-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:22-74
+33    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+33-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
+33-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
+34    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+34-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
+34-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
+35
+36    <application
+36-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:24:3-48:17
+37        android:name="com.travelify2.MainApplication"
+37-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:25:5-36
+38        android:allowBackup="false"
+38-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:29:5-32
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/639e914bfc1efa21e36199d3ff2c5eef/core-1.1.0/AndroidManifest.xml:24:18-86
+40        android:debuggable="true"
+41        android:icon="@mipmap/ic_launcher"
+41-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:27:5-39
+42        android:label="@string/app_name"
+42-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:26:5-37
+43        android:roundIcon="@mipmap/ic_launcher_round"
+43-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:28:5-50
+44        android:testOnly="true"
+45        android:theme="@style/AppTheme"
+45-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:30:5-36
+46        android:usesCleartextTraffic="true" >
+46-->/home/alertis/Projeler/travelify/android/app/src/debug/AndroidManifest.xml:6:18-53
+47        <meta-data
+47-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:32:5-103
+48            android:name="expo.modules.updates.EXPO_UPDATE_URL"
+48-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:32:16-67
+49            android:value="YOUR-APP-URL-HERE" />
+49-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:32:68-101
+50        <meta-data
+50-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:33:5-112
+51            android:name="expo.modules.updates.EXPO_SDK_VERSION"
+51-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:33:16-68
+52            android:value="YOUR-APP-SDK-VERSION-HERE" />
+52-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:33:69-110
+53
+54        <activity
+54-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:34:5-46:16
+55            android:name="com.travelify2.MainActivity"
+55-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:35:7-35
+56            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+56-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:37:7-84
+57            android:label="@string/app_name"
+57-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:36:7-39
+58            android:launchMode="singleTask"
+58-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:38:7-38
+59            android:theme="@style/Theme.App.SplashScreen"
+59-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:40:7-52
+60            android:windowSoftInputMode="adjustResize" >
+60-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:39:7-49
+61            <intent-filter>
+61-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:42:7-45:23
+62                <action android:name="android.intent.action.MAIN" />
+62-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:43:9-60
+62-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:43:17-58
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:44:9-68
+64-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:44:19-66
+65            </intent-filter>
+66        </activity>
+67        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+67-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:47:5-81
+67-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:47:15-79
+68
+69        <meta-data
+69-->[:unimodules-react-native-adapter] /home/alertis/Projeler/travelify/node_modules/@unimodules/react-native-adapter/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-14:91
+70            android:name="org.unimodules.core.AppLoader#react-native-headless"
+70-->[:unimodules-react-native-adapter] /home/alertis/Projeler/travelify/node_modules/@unimodules/react-native-adapter/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-79
+71            android:value="org.unimodules.adapters.react.apploader.RNHeadlessAppLoader" />
+71-->[:unimodules-react-native-adapter] /home/alertis/Projeler/travelify/node_modules/@unimodules/react-native-adapter/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-88
+72
+73        <provider
+73-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-26:20
+74            android:name="expo.modules.filesystem.FileSystemFileProvider"
+74-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-74
+75            android:authorities="com.travelify2.FileSystemFileProvider"
+75-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-74
+76            android:exported="false"
+76-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-37
+77            android:grantUriPermissions="true" >
+77-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-47
+78            <meta-data
+78-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:13-25:70
+79                android:name="android.support.FILE_PROVIDER_PATHS"
+79-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:17-67
+80                android:resource="@xml/file_system_provider_paths" />
+80-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-67
+81        </provider>
+82
+83        <service
+83-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-19:40
+84            android:name="expo.modules.location.services.LocationTaskService"
+84-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-78
+85            android:exported="false" />
+85-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-37
+86
+87        <activity
+87-->[com.google.android.gms:play-services-base:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/d0cd81d6042e59fc0cd0f24936da887b/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+88            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+88-->[com.google.android.gms:play-services-base:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/d0cd81d6042e59fc0cd0f24936da887b/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+89            android:exported="false"
+89-->[com.google.android.gms:play-services-base:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/d0cd81d6042e59fc0cd0f24936da887b/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+90            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+90-->[com.google.android.gms:play-services-base:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/d0cd81d6042e59fc0cd0f24936da887b/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+91
+92        <meta-data
+92-->[com.google.android.gms:play-services-basement:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/04234cdb8111faa010ee43de05c5c157/jetified-play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
+93            android:name="com.google.android.gms.version"
+93-->[com.google.android.gms:play-services-basement:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/04234cdb8111faa010ee43de05c5c157/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
+94            android:value="@integer/google_play_services_version" />
+94-->[com.google.android.gms:play-services-basement:16.0.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/04234cdb8111faa010ee43de05c5c157/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
+95
+96        <service
+96-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:25:9-27:40
+97            android:name="androidx.room.MultiInstanceInvalidationService"
+97-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:26:13-74
+98            android:exported="false" />
+98-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:27:13-37
+99        <service
+99-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
+100            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+100-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
+101            android:exported="false" />
+101-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
+102        <service
+102-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
+103            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+103-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
+104            android:exported="false" />
+104-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
+105        <service
+105-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
+106            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+106-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
+107            android:exported="false" />
+107-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
+108    </application>
+109
+110</manifest>

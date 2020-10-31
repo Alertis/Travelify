@@ -1,0 +1,12 @@
+{
+  "name": "travelify2",
+  "displayName": "travelify2",
+  "expo": {
+    "name": "travelify2",
+    "slug": "travelify2",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
