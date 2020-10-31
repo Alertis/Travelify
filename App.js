@@ -4,7 +4,7 @@ import {Scene, Router, Stack} from 'react-native-router-flux';
 import Login from './src/scenes/user/Login'
 import InfoLogin from './src/scenes/user/Info'
 import Register from './src/scenes/user/Register'
-
+import RestorePass from './src/scenes/user/RestorePass'
 
 
 const theme = {
@@ -22,9 +22,10 @@ export default function App() {
     <PaperProvider theme={theme}>
         <Router>
           <Stack hideNavBar key="root">
-            <Scene key="register" component={Register} />
             <Scene key="infoLogin" component={InfoLogin} />
             <Scene key="login" component={Login} />
+            <Scene key="restorePass" component={RestorePass} />
+            <Scene key="register" component={Register} />
           </Stack>
         </Router>
     </PaperProvider>
