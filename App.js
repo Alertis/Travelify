@@ -1,25 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Provider as PaperProvider, Button } from 'react-native-paper';
+import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import {Scene, Router, Stack} from 'react-native-router-flux';
+import Login from './src/scenes/user/Login'
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#600EE6',
+    secondary: '#414757',
+    error: '#f13a59',
+  },
+};
+
 export default function App() {
   return (
-    <PaperProvider>
-      <View style={styles.container}>
-      <Button icon="camera">
-        Press me
-      </Button>
-      </View>
+    <PaperProvider theme={theme}>
+        <Router>
+          <Stack hideNavBar key="root">
+            <Scene key="login" component={Login} />
+          </Stack>
+        </Router>
     </PaperProvider>
    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
