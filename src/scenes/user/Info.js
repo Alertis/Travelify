@@ -3,7 +3,7 @@ import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, TextInput, IconButton } from 'react-native-paper';
 import Background from '../../components/Background'
 
-export default function Login() {
+export default function Info() {
   return (
     <Background>
         <Image source={require('../../assets/logo.png')} style={styles.image} />
