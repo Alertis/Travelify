@@ -60,7 +60,7 @@ export default function Main() {
                         <View style={ styles.categoryIcon} >
                             <IconButton color="white" size={24} icon="leaf" />
                         </View>
-                        <Text style={styles.text}>Doğal</Text>
+                        <Text style={styles.text}>Doğa</Text>
                     </View>
                 </Surface>
                
