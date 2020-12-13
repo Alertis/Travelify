@@ -131,11 +131,13 @@ android {
     }
 
     defaultConfig {
+        manifestPlaceholders = [ mapsApiKey : "AIzaSyCgbKilqEjnzUREvvqUib9VgEbVI6RE8ro"]
         applicationId "com.travelify2"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
     }
     splits {
         abi {

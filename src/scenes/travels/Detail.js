@@ -1,7 +1,7 @@
 import React from 'react';
 import Comments from './components/Comments'
 import Gallery from './components/Gallery'
-
+import Maps from './components/Maps'
 import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import {  IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
@@ -73,6 +73,10 @@ const GalleryRoute = () => (
     <Gallery images={pictures}/>
 );
 
+const MapRoute = () => (
+    <Maps />
+);
+
 export default function TravelDetail() {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
@@ -85,7 +89,7 @@ export default function TravelDetail() {
     const renderScene = SceneMap({
       comments: CommentRoute,
       pictures: GalleryRoute,
-      maps: GalleryRoute,
+      maps: MapRoute,
 
     });
     const renderTabBar = props => (

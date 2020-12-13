@@ -103,6 +103,7 @@ attr alertDialogTheme
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
+attr ambientEnabled
 attr animationMode
 attr appBarLayoutStyle
 attr arrowHeadLength
@@ -169,6 +170,13 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr cameraBearing
+attr cameraMaxZoomPreference
+attr cameraMinZoomPreference
+attr cameraTargetLat
+attr cameraTargetLng
+attr cameraTilt
+attr cameraZoom
 attr cardBackgroundColor
 attr cardCornerRadius
 attr cardElevation
@@ -423,6 +431,10 @@ attr itemTextColor
 attr keylines
 attr labelVisibilityMode
 attr lastBaselineToBottomHeight
+attr latLngBoundsNorthEastLatitude
+attr latLngBoundsNorthEastLongitude
+attr latLngBoundsSouthWestLatitude
+attr latLngBoundsSouthWestLongitude
 attr layout
 attr layoutManager
 attr layout_anchor
@@ -454,8 +466,10 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr liteMode
 attr logo
 attr logoDescription
+attr mapType
 attr materialAlertDialogBodyTextStyle
 attr materialAlertDialogTheme
 attr materialAlertDialogTitleIconStyle
@@ -691,8 +705,17 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr uiCompass
+attr uiMapToolbar
+attr uiRotateGestures
+attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
+attr uiTiltGestures
+attr uiZoomControls
+attr uiZoomGestures
 attr useCompatPadding
 attr useMaterialThemeColors
+attr useViewLifecycle
 attr viewAspectRatio
 attr viewInflaterClass
 attr voiceIcon
@@ -709,6 +732,7 @@ attr windowNoTitle
 attr yearSelectedStyle
 attr yearStyle
 attr yearTodayStyle
+attr zOrderOnTop
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
@@ -1334,6 +1358,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable amu_bubble_mask
+drawable amu_bubble_shadow
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -1485,6 +1511,7 @@ id adjust_width
 id alertTitle
 id all
 id always
+id amu_text
 id async
 id auto
 id beginning
@@ -1562,6 +1589,7 @@ id group_divider
 id hideable
 id home
 id homeAsUp
+id hybrid
 id icon
 id icon_group
 id icon_only
@@ -1644,6 +1672,7 @@ id rn_redbox_report_button
 id rn_redbox_report_label
 id rn_redbox_stack
 id rounded
+id satellite
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1696,6 +1725,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id text
@@ -1731,7 +1761,9 @@ id view_tag_instance_handle
 id view_tag_native_id
 id visible
 id visible_removing_fragment_view_tag
+id webview
 id wide
+id window
 id withText
 id wrap_content
 integer abc_config_activityDefaultDur
@@ -1797,6 +1829,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout amu_info_window
+layout amu_text_bubble
+layout amu_webview
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1880,6 +1915,26 @@ layout text_view_without_line_height
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw amu_ballon_gx_prefix
+raw amu_basic_folder
+raw amu_basic_placemark
+raw amu_cdata
+raw amu_default_balloon
+raw amu_document_nest
+raw amu_draw_order_ground_overlay
+raw amu_extended_data
+raw amu_ground_overlay
+raw amu_ground_overlay_color
+raw amu_inline_style
+raw amu_multigeometry_placemarks
+raw amu_multiple_placemarks
+raw amu_nested_folders
+raw amu_nested_multigeometry
+raw amu_poly_style_boolean_alpha
+raw amu_poly_style_boolean_numeric
+raw amu_unknwown_folder
+raw amu_unsupported
+raw amu_visibility_ground_overlay
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2732,6 +2787,9 @@ style Widget_MaterialComponents_Toolbar_Primary
 style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_Support_CoordinatorLayout
+style amu_Bubble_TextAppearance_Dark
+style amu_Bubble_TextAppearance_Light
+style amu_ClusterIcon_TextAppearance
 style redboxButton
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
@@ -2783,6 +2841,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialButton android_insetLeft android_insetRight android_insetTop android_insetBottom android_checkable backgroundTint backgroundTintMode cornerRadius elevation icon iconGravity iconPadding iconSize iconTint iconTintMode rippleColor shapeAppearance shapeAppearanceOverlay strokeColor strokeWidth

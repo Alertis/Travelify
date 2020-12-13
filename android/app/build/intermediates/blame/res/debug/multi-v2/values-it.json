@@ -4,24 +4,7 @@
             "outputFile": "/home/alertis/Projeler/travelify/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-it/values-it.xml",
             "map": [
                 {
-                    "source": "/home/alertis/.gradle/caches/transforms-2/files-2.1/04234cdb8111faa010ee43de05c5c157/jetified-play-services-basement-16.0.1/res/values-it/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "194",
-                        "endOffsets": "441"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3956",
-                        "endColumns": "194",
-                        "endOffsets": "4146"
-                    }
-                },
-                {
-                    "source": "/home/alertis/.gradle/caches/transforms-2/files-2.1/d0cd81d6042e59fc0cd0f24936da887b/jetified-play-services-base-16.0.1/res/values-it/values.xml",
+                    "source": "/home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/res/values-it/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "105,210,313,422,506,611,730,808,884,976,1069,1162,1256,1358,1452,1549,1644,1736,1828,1908,2014,2121,2219,2323,2429,2536,2699,5510",
                         "endColumns": "104,102,108,83,104,118,77,75,91,92,92,93,101,93,96,94,91,91,79,105,106,97,103,105,106,162,99,80",
                         "endOffsets": "205,308,417,501,606,725,803,879,971,1064,1157,1251,1353,1447,1544,1639,1731,1823,1903,2009,2116,2214,2318,2424,2531,2694,2794,5586"
+                    }
+                },
+                {
+                    "source": "/home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/res/values-it/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "194",
+                        "endOffsets": "441"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3956",
+                        "endColumns": "194",
+                        "endOffsets": "4146"
                     }
                 }
             ]
