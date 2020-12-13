@@ -17,6 +17,8 @@ target 'travelify2' do
   use_flipper!
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNIKInteractiveImageLibrary', :path => '../node_modules/react-native-interactive-image-gallery'
+
   post_install do |installer|
     flipper_post_install(installer)
   end

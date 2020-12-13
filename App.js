@@ -32,14 +32,14 @@ export default function App() {
         <Router>
           <Stack hideNavBar key="root">
           <Scene key="travelDetail" component={TravelDetail} />
-          <Scene key="infoLogin" component={InfoLogin} />
 
           <Scene tabs={true} >
               <Scene initial title="Anasayfa" key="main" component={Main} hideNavBar icon={TabIcon} name="home-outline" />
               <Scene initial title="Seyehat Noktaları" key="main2" component={ListTravel} hideNavBar icon={TabIcon} name="home-outline" />
-              <Scene initial title="Ayarlar" key="main3" component={Main} hideNavBar icon={TabIcon} name="settings-outline" />
+              <Scene initial title="Ayarlar" key="main3" component={TravelDetail} hideNavBar icon={TabIcon} name="settings-outline" />
 
             </Scene>
+            <Scene key="infoLogin" component={InfoLogin} />
             <Scene key="login" component={Login} />
             <Scene key="restorePass" component={RestorePass} />
             <Scene key="register" component={Register} />
