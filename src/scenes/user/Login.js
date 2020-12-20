@@ -2,6 +2,8 @@ import React from 'react';
 import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, TextInput, IconButton } from 'react-native-paper';
 import Background from '../../components/Background'
+import { Actions } from 'react-native-router-flux'
+
 
 export default function Login() {
   return (
@@ -12,7 +14,7 @@ export default function Login() {
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => console.log('Pressed')}
+          onPress={() => Actions.pop()}
         />
         <Image source={require('../../assets/logo.png')} style={styles.image} />
         <Text style={styles.header}> Hoşgeldiniz </Text>
@@ -21,14 +23,14 @@ export default function Login() {
           <TextInput label="Şifre" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
         </View>
         <View style={styles.forgotPassword}>
-          <Button icon="camera" color="#414757" mode="text" onPress={() => console.log("go to forgot page")}>
+          <Button icon="camera" color="#414757" mode="text" onPress={Actions.restorePass}>
               <Text style={styles.label}>Şifremi Unuttum</Text>
           </Button>
         </View>
         <Button mode="contained"> Giriş Yap </Button>
         <View style={styles.row}>
         <Text style={styles.label}>Henüz hesabınız yok mu? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+        <TouchableOpacity onPress={Actions.register}>
             <Text style={styles.link}>Kayıt ol</Text>
         </TouchableOpacity>
         </View>

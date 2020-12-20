@@ -1,31 +1,83 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
-import { Button, TextInput, IconButton } from 'react-native-paper';
+import { Button, TextInput, IconButton, Snackbar } from 'react-native-paper';
 import Background from '../../components/Background'
+import { Actions } from 'react-native-router-flux'
+import {register} from '../../middlewares/user/action'
+import {useSelector, useDispatch} from 'react-redux'
 
 export default function Register() {
+  const [errorMessage , setError] = useState("")
+  const [username , setUserName] = useState("")
+  const [name , setName] = useState("")
+  const [lastName , setLastName] = useState("")
+  const [email , setEMail] = useState("")
+  const [password , setPassword] = useState("")
+
+  const dispatch = useDispatch();
+  const login = useSelector(state => state.User.login)
+  const errMsg = useSelector(state => state.User.errMsg)
+  const valid = useSelector(state => state.User.valid)
+
+
+  const onLogin = () => {
+    let data = {
+      name, lastname:lastName, email, password, username
+    }
+    console.log(data)
+    dispatch(register(data))
+  }
+  useEffect(() => {
+   if(errMsg !== "" && errMsg !== errorMessage)
+    setError(errMsg.message);
+  })
   return (
     <Background>
-
         <IconButton
           icon="arrow-left"
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => console.log('Pressed')}
+          onPress={() => Actions.pop()}
         />
+        
         <Image source={require('../../assets/logo.png')} style={styles.image} />
         <Text style={styles.header}> Yeni Hesap Oluşturun </Text>
+        <Snackbar
+          visible={errorMessage !== ""}
+          onDismiss={() => setError("")}
+          style={{backgroundColor: "red"}}
+        >
+          {errorMessage}
+        </Snackbar>
+        <Snackbar
+          visible={Object.keys(login).length > 0}
+          onDismiss={() => Actions.login}
+          style={{backgroundColor: "green"}}
+        >
+          Kayıt Başarı ile oluşturuldu giriş sayfasına yönlendiriliyorsunuz
+        </Snackbar>
         <View style={styles.inputGroups}>
-          <TextInput label="İsim" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
-          <TextInput label="Kullanıcı Adı" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
-          <TextInput label="E-posta" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
-          <TextInput label="Şifre" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <TextInput error={valid.username} label="Kullanıcı Adı" value={username} onChangeText={(e) => setUserName(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.username} </Text>
+          
+          <TextInput label="İsim" error={valid.name} value={name} onChangeText={(e) =>  setName(e)}  style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.name} </Text>
+          
+          <TextInput label="Soyisim" error={valid.lastname} value={lastName} onChangeText={(e) => setLastName(e)}  style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.lastname} </Text>
+          
+          <TextInput label="E-posta" error={valid.email} value={email} onChangeText={(e) => setEMail(e)}  style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.email} </Text>
+          
+          <TextInput label="Şifre" error={valid.password}  secureTextEntry={true} value={password} onChangeText={(e) => setPassword(e)}  style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.password} </Text>
+
         </View>
-        <Button mode="contained"> Kayıt Ol </Button>
+        <Button mode="contained" onPress={()=> onLogin()}> Kayıt Ol </Button>
         <View style={styles.row}>
           <Text style={styles.label}> Zaten üye misiniz?  </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+          <TouchableOpacity onPress={ Actions.login}>
               <Text style={styles.link}> Giriş Yap </Text>
           </TouchableOpacity>
         </View>
@@ -38,6 +90,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     left: 0
+  },
+  errorText: {
+    color: "red",
+    textAlign: 'center'
   },
   image: {
     width: 128,

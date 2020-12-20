@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "expo": "~39.0.2",
     "expo-splash-screen": "~0.6.2",
     "expo-status-bar": "~1.0.2",
@@ -15,6 +16,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.3",
+    "react-native-dotenv": "^2.4.3",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-interactive-image-gallery": "^0.1.2",
     "react-native-maps": "0.27.1",
@@ -25,12 +27,17 @@
     "react-native-tab-view": "^2.15.2",
     "react-native-unimodules": "~0.11.0",
     "react-native-vector-icons": "^7.1.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-promise-middleware": "^6.1.2",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-jest": "~25.2.6",
     "jest": "~25.2.6",
+    "metro-react-native-babel-preset": "^0.64.0",
     "react-test-renderer": "~16.13.1"
   },
   "jest": {

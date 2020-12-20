@@ -2,6 +2,7 @@ import React from 'react';
 import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, TextInput, IconButton } from 'react-native-paper';
 import Background from '../../components/Background'
+import { Actions } from 'react-native-router-flux'
 
 export default function Login() {
   return (
@@ -20,7 +21,7 @@ export default function Login() {
           <TextInput label="E-posta Adresi" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
         </View>
         <Button mode="contained"> Şifreyi Sıfırla </Button>
-        <Button icon="arrow-left" color="#414757" style={styles.back} size={20}> Giriş Yap </Button>
+        <Button icon="arrow-left" color="#414757" style={styles.back} size={20} onPress={Actions.login}> Giriş Yap </Button>
 
     </Background>
   );
