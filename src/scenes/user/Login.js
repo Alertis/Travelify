@@ -1,11 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
-import { Button, TextInput, IconButton } from 'react-native-paper';
+import { Button, TextInput, IconButton, Snackbar } from 'react-native-paper';
 import Background from '../../components/Background'
+import {login as singIn} from '../../middlewares/user/action'
 import { Actions } from 'react-native-router-flux'
+import {useSelector, useDispatch} from 'react-redux'
 
 
 export default function Login() {
+  const [errorMessage , setError] = useState("")
+  const [username , setUserName] = useState("")
+  const [password , setPassword] = useState("")
+
+  const dispatch = useDispatch();
+  const login = useSelector(state => state.User.login)
+  const errMsg = useSelector(state => state.User.errMsg)
+  const valid = useSelector(state => state.User.valid)
+
+  const onLogin = () => {
+    let data = {
+      username, password
+    }
+    dispatch(singIn(data))
+  }
+  useEffect(() => {
+   if(errMsg !== "" && errMsg !== errorMessage)
+    setError(errMsg.message);
+  })
+
   return (
     <Background>
 
@@ -18,16 +40,34 @@ export default function Login() {
         />
         <Image source={require('../../assets/logo.png')} style={styles.image} />
         <Text style={styles.header}> Hoşgeldiniz </Text>
+        <Snackbar
+          visible={errorMessage !== ""}
+          onDismiss={() => setError("")}
+          style={{backgroundColor: "red"}}
+        >
+          {errorMessage}
+        </Snackbar>
+        <Snackbar
+          visible={Object.keys(login).length > 0}
+          onDismiss={() => Actions.main}
+          style={{backgroundColor: "green"}}
+        >
+         Giriş başarılı anasayfaya yönlendiriliyorsunuz
+        </Snackbar>
         <View style={styles.inputGroups}>
-          <TextInput label="Kullanıcı Adı" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
-          <TextInput label="Şifre" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <TextInput label="Kullanıcı Adı" value={username} onChangeText={(e) => setUserName(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.username} </Text>
+         
+          <TextInput label="Şifre" value={password} onChangeText={(e) => setPassword(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.password} </Text>
+
         </View>
         <View style={styles.forgotPassword}>
           <Button icon="camera" color="#414757" mode="text" onPress={Actions.restorePass}>
               <Text style={styles.label}>Şifremi Unuttum</Text>
           </Button>
         </View>
-        <Button mode="contained"> Giriş Yap </Button>
+        <Button mode="contained" onPress={() => onLogin()}> Giriş Yap </Button>
         <View style={styles.row}>
         <Text style={styles.label}>Henüz hesabınız yok mu? </Text>
         <TouchableOpacity onPress={Actions.register}>
@@ -43,6 +83,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     left: 0
+  },
+  errorText: {
+    color: "red",
+    textAlign: 'center'
   },
   image: {
     width: 128,

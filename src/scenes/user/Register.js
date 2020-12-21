@@ -3,7 +3,7 @@ import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, TextInput, IconButton, Snackbar } from 'react-native-paper';
 import Background from '../../components/Background'
 import { Actions } from 'react-native-router-flux'
-import {register} from '../../middlewares/user/action'
+import {register as singUp} from '../../middlewares/user/action'
 import {useSelector, useDispatch} from 'react-redux'
 
 export default function Register() {
@@ -15,17 +15,16 @@ export default function Register() {
   const [password , setPassword] = useState("")
 
   const dispatch = useDispatch();
-  const login = useSelector(state => state.User.login)
+  const register = useSelector(state => state.User.register)
   const errMsg = useSelector(state => state.User.errMsg)
   const valid = useSelector(state => state.User.valid)
 
 
-  const onLogin = () => {
+  const onRegister = () => {
     let data = {
       name, lastname:lastName, email, password, username
     }
-    console.log(data)
-    dispatch(register(data))
+    dispatch(singUp(data))
   }
   useEffect(() => {
    if(errMsg !== "" && errMsg !== errorMessage)
@@ -51,7 +50,7 @@ export default function Register() {
           {errorMessage}
         </Snackbar>
         <Snackbar
-          visible={Object.keys(login).length > 0}
+          visible={Object.keys(register).length > 0}
           onDismiss={() => Actions.login}
           style={{backgroundColor: "green"}}
         >
@@ -74,7 +73,7 @@ export default function Register() {
           <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.password} </Text>
 
         </View>
-        <Button mode="contained" onPress={()=> onLogin()}> Kayıt Ol </Button>
+        <Button mode="contained" onPress={()=> onRegister()}> Kayıt Ol </Button>
         <View style={styles.row}>
           <Text style={styles.label}> Zaten üye misiniz?  </Text>
           <TouchableOpacity onPress={ Actions.login}>
