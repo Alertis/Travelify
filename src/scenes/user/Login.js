@@ -19,6 +19,7 @@ export default function Login() {
 
   const onLogin = () => {
     let data = {
+      email:
       username, password
     }
     dispatch(singIn(data))
@@ -27,6 +28,8 @@ export default function Login() {
    if(errMsg !== "" && errMsg !== errorMessage)
     setError(errMsg.message);
   })
+
+  var ls = require('react-native-local-storage');
 
   return (
     <Background>
@@ -49,7 +52,14 @@ export default function Login() {
         </Snackbar>
         <Snackbar
           visible={Object.keys(login).length > 0}
-          onDismiss={() => Actions.main}
+          onDismiss={() => {
+            Actions.main();
+            ls.save('username', login.username)
+            ls.save('token', login.token)
+            ls.save('userId', login.userId)
+            ls.save('role', login.role)
+
+          }}
           style={{backgroundColor: "green"}}
         >
          Giriş başarılı anasayfaya yönlendiriliyorsunuz

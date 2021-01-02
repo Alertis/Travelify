@@ -19,6 +19,7 @@
     "react-native-dotenv": "^2.4.3",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-interactive-image-gallery": "^0.1.2",
+    "react-native-local-storage": "^1.5.2",
     "react-native-maps": "0.27.1",
     "react-native-paper": "^4.3.0",
     "react-native-reanimated": "^1.13.2",

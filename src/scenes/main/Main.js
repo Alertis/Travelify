@@ -9,8 +9,8 @@ export default function Main() {
   function surface(color){
     let colorArr = ['']
     return  {
-        minHeight: 120,
-        minWidth: 120,
+        minHeight: 100,
+        minWidth: 100,
         margin: 8,
         flexWrap: "wrap",
         borderRadius: 6,
@@ -18,6 +18,8 @@ export default function Main() {
         justifyContent: "center"
       }
   }
+  var ls = require('react-native-local-storage');
+  ls.get('username').then((data) => {console.log("get: ", data)});
   return (
     <Background>
         <Searchbar style={styles.searchBar} placeholder="Search" onChangeText={ query => setSearchQuery(query)} value={searchQuery} />
