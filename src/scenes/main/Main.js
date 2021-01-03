@@ -16,6 +16,7 @@ export default function Main() {
   useEffect(() => {
     dispatch(categoryList())
   },[dispatch])
+  
   function surface(color){
     let colorArr = ['']
     return  {

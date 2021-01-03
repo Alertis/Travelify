@@ -58,6 +58,7 @@ export default function Login() {
             ls.save('token', login.token)
             ls.save('userId', login.userId)
             ls.save('role', login.role)
+            console.log(login.token)
 
           }}
           style={{backgroundColor: "green"}}
@@ -68,7 +69,7 @@ export default function Login() {
           <TextInput label="Kullanıcı Adı" value={username} onChangeText={(e) => setUserName(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
           <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.username} </Text>
          
-          <TextInput label="Şifre" value={password} onChangeText={(e) => setPassword(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
+          <TextInput label="Şifre" value={password} secureTextEntry={true} onChangeText={(e) => setPassword(e)} style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
           <Text style={styles.errorText}> {Object.keys(valid).length > 0 && valid.password} </Text>
 
         </View>
