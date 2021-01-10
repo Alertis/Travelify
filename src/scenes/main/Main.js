@@ -4,9 +4,8 @@ import { Searchbar, Surface, IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {categoryList} from '../../middlewares/categories/action'
-import { Actions } from 'react-native-router-flux';
 
-export default function Main() {
+export default function Main({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState('');
   const dispatch = useDispatch();
   const categories = useSelector(state => state.Categories.categories)
@@ -30,7 +29,7 @@ export default function Main() {
   }
   
   function searchLocation(){
-    Actions.locations({text: searchQuery})
+    navigation.navigate('TabNavigation', { screen: 'locations', params:{search: searchQuery} })
   }
 
   return (

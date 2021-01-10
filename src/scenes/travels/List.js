@@ -4,10 +4,10 @@ import {  IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {locationList} from '../../middlewares/locations/action'
-import { Actions } from 'react-native-router-flux'
 
 
-export default function ListTravel(props) {
+
+export default function ListTravel(props, { navigation }) {
   const dispatch = useDispatch();
   const locations = useSelector(state => state.Locations.locations)
   const errMsg = useSelector(state => state.Locations.errMsg)
@@ -16,18 +16,19 @@ export default function ListTravel(props) {
   
 
   useEffect(() => {
-    dispatch(locationList())
-    console.log(props.navigation.state)
+    dispatch(locationList(props.route.params.search))
+    console.log(props.route.params.search)
   },[props])
   
   return (
     <Background>
+        <Text> {loading ? "yükleniyor": "yüklendi"} </Text>
         <IconButton
           icon="arrow-left"
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => Actions.pop()}
+          onPress={() => props.navigation.goBack()}
         />
         <ScrollView style={styles.travels} >
         {locations.map((location) => {
