@@ -6,6 +6,7 @@ export const LOCATIONLIST_REJECTED = 'LOCATIONLIST_REJECTED';
 
 
 export function locationList(data) {
+  console.log(data)
   return async (dispatch) => {
     try {
       dispatch({

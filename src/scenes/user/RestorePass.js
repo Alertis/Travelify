@@ -4,7 +4,7 @@ import { Button, TextInput, IconButton } from 'react-native-paper';
 import Background from '../../components/Background'
 import { Actions } from 'react-native-router-flux'
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <Background>
 
@@ -13,7 +13,7 @@ export default function Login() {
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => console.log('Pressed')}
+          onPress={() => navigation.goBack()}
         />
         <Image source={require('../../assets/logo.png')} style={styles.image} />
         <Text style={styles.header}> Şifrenizi Sıfırlayın </Text>
@@ -21,7 +21,7 @@ export default function Login() {
           <TextInput label="E-posta Adresi" style={styles.input} selectionColor='#600EE6' underlineColor="transparent" mode="outlined"/>
         </View>
         <Button mode="contained"> Şifreyi Sıfırla </Button>
-        <Button icon="arrow-left" color="#414757" style={styles.back} size={20} onPress={Actions.login}> Giriş Yap </Button>
+        <Button icon="arrow-left" color="#414757" style={styles.back} size={20} onPress={() => navigation.navigate('login')}> Giriş Yap </Button>
 
     </Background>
   );
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     top: 10,
-    left: 0
+    left: 0,
+    backgroundColor: '#fff'
   },
   image: {
     width: 128,
@@ -42,19 +43,23 @@ const styles = StyleSheet.create({
     color: '#600EE6',
     fontWeight: 'bold',
     paddingVertical: 14,
+    backgroundColor: '#fff'
   },
   back: {
     width: '100%',
     marginTop: 12,
     left: 0,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: '#fff'
   },
   row: {
     flexDirection: 'row',
     marginTop: 4,
+    backgroundColor: '#fff'
   },
   label: {
     color: '#414757',
+    backgroundColor: '#fff'
   },
   link: {
     fontWeight: 'bold',

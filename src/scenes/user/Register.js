@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux'
 import {register as singUp} from '../../middlewares/user/action'
 import {useSelector, useDispatch} from 'react-redux'
 
-export default function Register() {
+export default function Register({ navigation}) {
   const [errorMessage , setError] = useState("")
   const [username , setUserName] = useState("")
   const [name , setName] = useState("")
@@ -37,7 +37,7 @@ export default function Register() {
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => Actions.pop()}
+          onPress={() => navigation.goBack()}
         />
         
         <Image source={require('../../assets/logo.png')} style={styles.image} />
@@ -51,7 +51,7 @@ export default function Register() {
         </Snackbar>
         <Snackbar
           visible={Object.keys(register).length > 0}
-          onDismiss={() => Actions.login}
+          onDismiss={() => navigation.navigate('login')}
           style={{backgroundColor: "green"}}
         >
           Kayıt Başarı ile oluşturuldu giriş sayfasına yönlendiriliyorsunuz
@@ -76,7 +76,7 @@ export default function Register() {
         <Button mode="contained" onPress={()=> onRegister()}> Kayıt Ol </Button>
         <View style={styles.row}>
           <Text style={styles.label}> Zaten üye misiniz?  </Text>
-          <TouchableOpacity onPress={ Actions.login}>
+          <TouchableOpacity onPress={ () => navigation.navigate('login')}>
               <Text style={styles.link}> Giriş Yap </Text>
           </TouchableOpacity>
         </View>
@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     top: 10,
-    left: 0
+    left: 0,
+    backgroundColor: '#fff'
   },
   errorText: {
     color: "red",
@@ -103,15 +104,13 @@ const styles = StyleSheet.create({
     color: '#600EE6',
     fontWeight: 'bold',
     paddingVertical: 14,
+    backgroundColor: '#fff'
   },
-  forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
-    marginBottom: 24,
-  },
+
   row: {
     flexDirection: 'row',
     marginTop: 4,
+    backgroundColor: '#fff'
   },
   label: {
     color: '#414757',

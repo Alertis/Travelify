@@ -3,11 +3,10 @@ import {  TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import { Button, TextInput, IconButton, Snackbar } from 'react-native-paper';
 import Background from '../../components/Background'
 import {login as singIn} from '../../middlewares/user/action'
-import { Actions } from 'react-native-router-flux'
 import {useSelector, useDispatch} from 'react-redux'
 
 
-export default function Login() {
+export default function Login({ navigation }) {
   const [errorMessage , setError] = useState("")
   const [username , setUserName] = useState("")
   const [password , setPassword] = useState("")
@@ -19,8 +18,7 @@ export default function Login() {
 
   const onLogin = () => {
     let data = {
-      email:
-      username, password
+      email:username, password
     }
     dispatch(singIn(data))
   }
@@ -39,7 +37,7 @@ export default function Login() {
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => Actions.pop()}
+          onPress={() => navigation.goBack()}
         />
         <Image source={require('../../assets/logo.png')} style={styles.image} />
         <Text style={styles.header}> Hoşgeldiniz </Text>
@@ -53,7 +51,7 @@ export default function Login() {
         <Snackbar
           visible={Object.keys(login).length > 0}
           onDismiss={() => {
-            Actions.main();
+            navigation.navigate('TabNavigation');
             ls.save('username', login.username)
             ls.save('token', login.token)
             ls.save('userId', login.userId)
@@ -74,14 +72,14 @@ export default function Login() {
 
         </View>
         <View style={styles.forgotPassword}>
-          <Button icon="camera" color="#414757" mode="text" onPress={Actions.restorePass}>
+          <Button icon="camera" color="#414757" mode="text" onPress={() => navigation.navigate('restorePass')}>
               <Text style={styles.label}>Şifremi Unuttum</Text>
           </Button>
         </View>
         <Button mode="contained" onPress={() => onLogin()}> Giriş Yap </Button>
         <View style={styles.row}>
         <Text style={styles.label}>Henüz hesabınız yok mu? </Text>
-        <TouchableOpacity onPress={Actions.register}>
+        <TouchableOpacity onPress={() => navigation.navigate('register')}>
             <Text style={styles.link}>Kayıt ol</Text>
         </TouchableOpacity>
         </View>
@@ -108,6 +106,7 @@ const styles = StyleSheet.create({
     color: '#600EE6',
     fontWeight: 'bold',
     paddingVertical: 14,
+    backgroundColor: '#fff'
   },
   forgotPassword: {
     width: '100%',
@@ -117,9 +116,11 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     marginTop: 4,
+    backgroundColor: '#fff'
   },
   label: {
     color: '#414757',
+    backgroundColor: '#fff'
   },
   link: {
     fontWeight: 'bold',

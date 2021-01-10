@@ -4,7 +4,7 @@ import { Searchbar, Surface, IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {categoryList} from '../../middlewares/categories/action'
-
+import { Actions } from 'react-native-router-flux';
 
 export default function Main() {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -16,9 +16,8 @@ export default function Main() {
   useEffect(() => {
     dispatch(categoryList())
   },[dispatch])
-  
+
   function surface(color){
-    let colorArr = ['']
     return  {
         minHeight: 100,
         minWidth: 100,
@@ -30,9 +29,13 @@ export default function Main() {
       }
   }
   
+  function searchLocation(){
+    Actions.locations({text: searchQuery})
+  }
+
   return (
     <Background>
-        <Searchbar style={styles.searchBar} placeholder="Search" onChangeText={ query => setSearchQuery(query)} value={searchQuery} />
+        <Searchbar style={styles.searchBar} placeholder="Search" onChangeText={ query => setSearchQuery(query)} value={searchQuery} onIconPress={searchLocation} />
         <ScrollView style={styles.scrlCategory} >
             <View style={styles.categoryBox}>
                 {categories.map((category) => {

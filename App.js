@@ -7,7 +7,10 @@ import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 
 import { Provider as PaperProvider, DefaultTheme, IconButton, Text } from 'react-native-paper';
-import {Scene, Router, Stack} from 'react-native-router-flux';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import Login from './src/scenes/user/Login'
 import InfoLogin from './src/scenes/user/Info'
 import ListTravel from './src/scenes/travels/List'
@@ -15,6 +18,11 @@ import Register from './src/scenes/user/Register'
 import RestorePass from './src/scenes/user/RestorePass'
 import TravelDetail from './src/scenes/travels/Detail'
 import Main from './src/scenes/main/Main'
+
+import Icon from 'react-native-ionicons'
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const theme = {
   ...DefaultTheme,
@@ -33,27 +41,55 @@ function TabIcon(props){
 }
 
 const store = createStore( rootReducer, applyMiddleware(promise,thunk) )
+const tabNavigation = () => {
+  return( 
+    <Tab.Navigator    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        if (route.name === 'main') {
+          return (
+            <Icon name="apps" color={color} />
+          );
+        } else if (route.name === 'setting') {
+          return (
+            <Icon name="construct" color={color} />
+          );
+        } else if (route.name === 'locations')
+        return (
+          <Icon name="compass" color={color} />
+        );
+      },
+    })}
+    tabBarOptions={{
+      activeTintColor: '#f13a59',
+      inactiveTintColor: '#600EE6',
+    }}>
+      <Tab.Screen name="main" component={Main} options={{headerShown: false}}  />
+      <Tab.Screen name="locations" component={ListTravel} options={{headerShown: false}} />
+      <Tab.Screen name="setting" component={TravelDetail} options={{headerShown: false}} />
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
-
+  let options =  {
+    headerShown: false,
+    cardStyle: { backgroundColor: 'transparent'}
+  }
   return (
     <Provider store={store}>
       <PaperProvider theme={theme}>
-        <Router>
-          <Stack hideNavBar key="root">
-            <Scene key="infoLogin" component={InfoLogin} />
-            <Scene key="login" component={Login} />
-            <Scene key="register" component={Register} />
-            <Scene key="restorePass" component={RestorePass} />
-            <Scene tabs={true} >
-              <Scene initial title="Anasayfa" key="main" component={Main} hideNavBar icon={TabIcon} name="home-outline" />
-              <Scene initial title="Seyehat Noktaları" key="main2" component={ListTravel} hideNavBar icon={TabIcon} name="home-outline" />
-              <Scene initial title="Ayarlar" key="main3" component={TravelDetail} hideNavBar icon={TabIcon} name="settings-outline" />
-            </Scene>
-            <Scene key="travelDetail" component={TravelDetail} />
+        <NavigationContainer>
+          <Stack.Navigator >
+            <Stack.Screen name="infoLogin" component={InfoLogin } options={options} />
+            <Stack.Screen name="login" component={Login} options={options} />
+            <Stack.Screen name="register" component={Register} options={options}/>
+            <Stack.Screen name="restorePass" component={RestorePass} options={options} />
+            <Stack.Screen name="TabNavigation" component={tabNavigation} options={options} independent={true} />
 
-          </Stack>
-        </Router>
+            
+          </Stack.Navigator>
+         
+        </NavigationContainer>       
       </PaperProvider>
     </Provider>
   );
