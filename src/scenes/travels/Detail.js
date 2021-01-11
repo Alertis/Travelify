@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Comments from './components/Comments'
 import Gallery from './components/Gallery'
 import Maps from './components/Maps'
@@ -6,6 +6,8 @@ import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
 import {  IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import {useSelector, useDispatch} from 'react-redux'
+import {locationDetail} from '../../middlewares/locations/action'
 
 let pictures = [
     {
@@ -77,7 +79,12 @@ const MapRoute = () => (
     <Maps />
 );
 
-export default function TravelDetail() {
+export default function TravelDetail({route, navigation}) {
+    const dispatch = useDispatch();
+    const detail = useSelector(state => state.Locations.detail)
+    const errMsg = useSelector(state => state.Locations.errMsg)
+    const loading = useSelector(state => state.Locations.loading)
+  
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
@@ -100,15 +107,22 @@ export default function TravelDetail() {
         />
       );
     const initialLayout = { width: Dimensions.get('window').width };
+
+    useEffect(() => {
+        console.log(route.params)
+        dispatch(locationDetail(route.params.locationId))
+
+    },[route])
   return (
     <Background>
+        {console.log('detail:',detail)}
         <View style={styles.container} >
             <View style={styles.leftIcons}>
                 <IconButton
                     icon="arrow-left"
                     size={20}
                     color="#600EE6"
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => navigation.goBack()}
                 />
             </View>
             <View style={styles.rightIcons}>
@@ -136,17 +150,8 @@ export default function TravelDetail() {
        
         <View style={styles.travels} >
             <ScrollView style={styles.detail}>
-                <Text style={styles.title}> İstanbul Oyuncak Mağazası </Text>
-                <Text style={styles.description}>
-                    İstanbul Oyuncak Müzesi, İstanbul'un Kadıköy ilçesinin Göztepe semtinde bulunan ve şair Sunay Akın 
-                    tarafından 23 Nisan 2005'te kurulan oyuncak müzesidir. Müze koleksiyonu, Sunay Akın’ın 20 yıl boyunca 40'tan
-                    fazla ülkede satın aldığı oyuncaklardan oluşturulmuş, dekoruysa sahne tasarım sanatçısı Ayhan Doğan 
-                    tarafından tasarlanmıştır. Müze içerisinde 1700'lü yıllardan itibaren günümüze kadar gelen oyuncaklar 
-                    sergilenmektedir. 2012 yılının Kasım ayında dünya çapındaki benzer müzeleri bir araya getirmek için Sunay
-                    Akın tarafından kurulmuş olan Oyuncak ve Çocuk Müzeleri Birliği'nin (TOYCO) ilk buluşmasına ev sahipliği 
-                    yapmış olan müze, Antalya'da, Ataşehir'de ve Gaziantep'te Sunay Akın'ın danışmanlığı ve küratörlüğüyle yeni 
-                    oyuncak müzeleri açılması için örnek teşkil etmiştir. 
-                </Text>
+                <Text style={styles.title}> {detail.length > 0 && detail[0].name} </Text>
+                <Text style={styles.description}>{detail.length > 0 && detail[0].description}</Text>
                 
             </ScrollView>
             <View style={styles.tabs}>

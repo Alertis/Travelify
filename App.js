@@ -84,6 +84,7 @@ export default function App() {
             <Stack.Screen name="login" component={Login} options={options} />
             <Stack.Screen name="register" component={Register} options={options}/>
             <Stack.Screen name="restorePass" component={RestorePass} options={options} />
+            <Stack.Screen name="travelDetail" component={TravelDetail} options={options} />
             <Stack.Screen name="TabNavigation" component={tabNavigation} options={options} independent={true} />
 
             

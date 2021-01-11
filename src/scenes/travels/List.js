@@ -4,10 +4,11 @@ import {  IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {locationList} from '../../middlewares/locations/action'
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 
 
-export default function ListTravel(props, { navigation }) {
+export default function ListTravel( { route, navigation }) {
   const dispatch = useDispatch();
   const locations = useSelector(state => state.Locations.locations)
   const errMsg = useSelector(state => state.Locations.errMsg)
@@ -17,15 +18,20 @@ export default function ListTravel(props, { navigation }) {
 
   useEffect(() => {
       let params = {}
-      if(props.route.params.search)
+      if(route.params.search)
         params.search = props.route.params.search
       else 
-        params.category = props.route.params.categoryId
+        params.category = route.params.categoryId
 
         dispatch(locationList(params))
-    console.log(props.route.params)
-  },[props])
+    console.log(route.params)
+  },[route])
   
+  function locationDetail(id){
+    //navigation.navigate('TabNavigation', { screen: 'travelDetail', params:{locationId: id} })
+    navigation.navigate('travelDetail', { locationId: id})
+
+  }
   return (
     <Background>
         <Text> {loading ? "yükleniyor": "yüklendi"} </Text>
@@ -34,19 +40,22 @@ export default function ListTravel(props, { navigation }) {
           style={styles.container}
           size={20}
           color="#600EE6"
-          onPress={() => props.navigation.goBack()}
+          onPress={() => navigation.goBack()}
         />
         <ScrollView style={styles.travels} >
+            {console.log(locations)}
         {locations.map((location) => {
             return(
-                <View style={styles.listBox}>
-                    <IconButton icon="star" size={24} color="#600EE6" style={styles.icon} />
-                    <View style={styles.info}>
-                        <Text style={styles.title}> {location.name} </Text>
-                        <Text style={styles.description}>{location.description} </Text> 
+                <TouchableHighlight onPress={() => locationDetail(location._id)}>
+                     <View style={styles.listBox}>
+                        <IconButton icon="star" size={24} color="#600EE6" style={styles.icon} />
+                        <View style={styles.info}>
+                            <Text style={styles.title}> {location.name} </Text>
+                            <Text style={styles.description}>{location.description} </Text> 
+                        </View>
+                        <IconButton icon="map-marker-path" size={24} color="#600EE6" style={styles.icon} onPress={() => console.log('Pressed')}/>
                     </View>
-                    <IconButton icon="map-marker-path" size={24} color="#600EE6" style={styles.icon} onPress={() => console.log('Pressed')}/>
-                </View>
+                </TouchableHighlight>
             )
         })}
             
