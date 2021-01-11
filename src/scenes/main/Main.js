@@ -4,6 +4,7 @@ import { Searchbar, Surface, IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {categoryList} from '../../middlewares/categories/action'
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function Main({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -31,6 +32,9 @@ export default function Main({ navigation }) {
   function searchLocation(){
     navigation.navigate('TabNavigation', { screen: 'locations', params:{search: searchQuery} })
   }
+  function detailCategory(id){
+    navigation.navigate('TabNavigation', { screen: 'locations', params:{categoryId: id} })
+  }
 
   return (
     <Background>
@@ -39,14 +43,16 @@ export default function Main({ navigation }) {
             <View style={styles.categoryBox}>
                 {categories.map((category) => {
                     return(
-                        <Surface style={surface(category.color)}>
-                            <View style={styles.surfaceContent}>
-                                <View style={ styles.categoryIcon} >
-                                    <IconButton color="white" size={24} icon={category.icon} />
+                        <TouchableHighlight onPress={() => detailCategory(category._id)}>
+                            <Surface style={surface(category.color)} >
+                                <View style={styles.surfaceContent}>
+                                    <View style={ styles.categoryIcon} >
+                                        <IconButton color="white" size={24} icon={category.icon} />
+                                    </View>
+                                    <Text style={styles.text}>{category.categoryName}</Text>
                                 </View>
-                                <Text style={styles.text}>{category.categoryName}</Text>
-                            </View>
-                        </Surface>
+                            </Surface>
+                        </TouchableHighlight>
                     )
                 })}
             </View>

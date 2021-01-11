@@ -4,7 +4,7 @@ import { ImageBackground,  StyleSheet,  KeyboardAvoidingView, View} from 'react-
 
 export default function Background(props) {
   return(
-    <ImageBackground source={require('../assets/bg.jpg')} resizeMode="repeat" style={styles.background}>
+    <ImageBackground source={require('../assets/background_dot.png')} resizeMode="repeat" style={styles.background}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
             {props.children}
         </KeyboardAvoidingView>

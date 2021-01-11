@@ -5,8 +5,7 @@ export const LOCATIONLIST_FULFILLED = 'LOCATIONLIST_FULFILLED';
 export const LOCATIONLIST_REJECTED = 'LOCATIONLIST_REJECTED';
 
 
-export function locationList(search) {
-  console.log(search)
+export function locationList(data) {
   return async (dispatch) => {
     try {
       dispatch({
@@ -15,12 +14,14 @@ export function locationList(search) {
       var ls = require('react-native-local-storage');
       let token = ls.get('token').then((data) => data);
       let response;
-      if(search){
+      if(data.search){
         response = await axios.get(
-          `https://travelify-backend.herokuapp.com/locations/search/?name=`+search,
-          {headers:{Cookie: "jwt="+token}}
+          `https://travelify-backend.herokuapp.com/locations/search/?name=`+search,{headers:{Cookie: "jwt="+token}}
         );
-      } else{
+      } else if (data.category){
+        response = await axios.get(
+          `https://travelify-backend.herokuapp.com/categories/`+data.category+`/locations`,{headers:{Cookie: "jwt="+token}});
+      }else{
         response = await axios.get(
           `https://travelify-backend.herokuapp.com/locations`,
           {headers:{Cookie: "jwt="+token}}

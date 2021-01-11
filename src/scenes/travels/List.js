@@ -16,8 +16,14 @@ export default function ListTravel(props, { navigation }) {
   
 
   useEffect(() => {
-    dispatch(locationList(props.route.params.search))
-    console.log(props.route.params.search)
+      let params = {}
+      if(props.route.params.search)
+        params.search = props.route.params.search
+      else 
+        params.category = props.route.params.categoryId
+
+        dispatch(locationList(params))
+    console.log(props.route.params)
   },[props])
   
   return (
