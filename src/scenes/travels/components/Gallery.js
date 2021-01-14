@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
 import {  IconButton, TextInput, Button } from 'react-native-paper';
 import ImageBrowser from 'react-native-interactive-image-gallery'
 
 export default function Gallery(props) {
-    const imageURLs = props.images.map( (img, index) => ({
-          URI: img.uri,
-          thumbnail: img.thumbnail,
-          id: String(index),
-          title: img.title,
-          description: img.description
-        })
+  const [photos, setPhotos] = useState([])
+    useEffect(() => {
+      let imageURLs= [];
+      console.log(props.images.photos )
+
+      props.images.photos && props.images.photos.map( (img, index) => {
+        console.log("resim", img, props )
+        imageURLs.push(
+          {
+            URI: img.imageUrl,
+            thumbnail: img.imageUrl,
+            id: String(index),
+            title: props.title,
+            description: props.description
+          }
+        )
+        }
       )
+      setPhotos(imageURLs)
+    },[props])
+    
   return (
     <ScrollView style={styles.content}>
-       <ImageBrowser images={imageURLs} />
+       <ImageBrowser images={photos} />
     </ScrollView>
   );
 }

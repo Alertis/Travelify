@@ -1,8 +1,10 @@
-import { LOCATIONLIST_FULFILLED, LOCATIONLIST_PENDING, LOCATIONLIST_REJECTED, LOCATIONDETAIL_FULFILLED, LOCATIONDETAIL_REJECTED, LOCATIONDETAIL_PENDING } from './action';
+import { LOCATIONLIST_FULFILLED, LOCATIONLIST_PENDING, LOCATIONLIST_REJECTED, LOCATIONDETAIL_FULFILLED, LOCATIONDETAIL_REJECTED, LOCATIONDETAIL_PENDING,
+LOCATIONPICS_FULFILLED, LOCATIONPICS_PENDING, LOCATIONPICS_REJECTED } from './action';
 
 const initialState = {
     detail:{},
     locations: [],
+    photos: [],
     errMsg: "",
     loading: false,
     reject: false
@@ -52,6 +54,28 @@ export default (state = initialState, action) => {
                 loading : false,
                 reject: true,
                 detail: {},
+                errMsg: action.payload,
+            }
+        case LOCATIONPICS_PENDING:
+            return{
+                ...state,
+                loading : true,
+                reject: false,
+                photos: []
+            }
+        case LOCATIONPICS_FULFILLED:
+            return{
+                ...state,
+                loading : false,
+                reject: false,
+                photos: action.payload
+            }
+        case LOCATIONPICS_REJECTED:
+            return{
+                ...state,
+                loading : false,
+                reject: true,
+                photos: [],
                 errMsg: action.payload,
             }
         default:

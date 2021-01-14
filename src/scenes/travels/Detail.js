@@ -7,84 +7,19 @@ import {  IconButton,  } from 'react-native-paper';
 import Background from '../../components/Background'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import {useSelector, useDispatch} from 'react-redux'
-import {locationDetail} from '../../middlewares/locations/action'
+import {locationDetail, locationPics} from '../../middlewares/locations/action'
 
-let pictures = [
-    {
-        uri: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/23e075df-b24e-4ecb-9ae6-11175b85976c/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/23e075df-b24e-4ecb-9ae6-11175b85976c/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/70618db3-e134-4b43-83d6-5602e76df1e3/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/70618db3-e134-4b43-83d6-5602e76df1e3/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://www.gezilesiyer.com/wp-content/uploads/2018/09/istanbul-gezilecekyerler-oyuncak-muzesi-06.jpg',
-        thumbnail: 'https://www.gezilesiyer.com/wp-content/uploads/2018/09/istanbul-gezilecekyerler-oyuncak-muzesi-06.jpg',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-    {
-        uri: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        thumbnail: 'https://ucarecdn.com/b5975e77-fbfa-4fbe-a228-bff4e11d8918/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-        id: 1,
-        title: 'İstanbul Oyuncak Müzesi',
-        description: 'İstanbul Oyuncak Müzesi'
-    },
-]
-const CommentRoute = () => (
-   <Comments />
-  );
-   
-const GalleryRoute = () => (
-    <Gallery images={pictures}/>
-);
+var ls = require('react-native-local-storage');
 
-const MapRoute = () => (
-    <Maps />
-);
+
 
 export default function TravelDetail({route, navigation}) {
     const dispatch = useDispatch();
     const detail = useSelector(state => state.Locations.detail)
+    const photos = useSelector(state => state.Locations.photos)
     const errMsg = useSelector(state => state.Locations.errMsg)
     const loading = useSelector(state => state.Locations.loading)
-  
+    
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
@@ -92,6 +27,18 @@ export default function TravelDetail({route, navigation}) {
       { key: 'maps', title: 'Harita' },
 
     ]);
+
+    const CommentRoute = () => (
+        <Comments />
+       );
+        
+     const GalleryRoute = () => (
+         <Gallery images={photos} title={detail.length > 0 ? detail[0].name : ""} description={detail.length > 0 ? detail[0].description : ""} />
+     );
+     
+     const MapRoute = () => (
+         <Maps />
+     );
    
     const renderScene = SceneMap({
       comments: CommentRoute,
@@ -109,13 +56,13 @@ export default function TravelDetail({route, navigation}) {
     const initialLayout = { width: Dimensions.get('window').width };
 
     useEffect(() => {
-        console.log(route.params)
         dispatch(locationDetail(route.params.locationId))
+        dispatch(locationPics(route.params.locationId))
 
     },[route])
   return (
     <Background>
-        {console.log('detail:',detail)}
+        {console.log('detail:',photos)}
         <View style={styles.container} >
             <View style={styles.leftIcons}>
                 <IconButton

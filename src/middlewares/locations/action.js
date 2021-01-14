@@ -8,6 +8,10 @@ export const LOCATIONDETAIL_PENDING = 'LOCATIONDETAIL_PENDING';
 export const LOCATIONDETAIL_FULFILLED = 'LOCATIONDETAIL_FULFILLED';
 export const LOCATIONDETAIL_REJECTED = 'LOCATIONDETAIL_REJECTED';
 
+export const LOCATIONPICS_PENDING = 'LOCATIONPICS_PENDING';
+export const LOCATIONPICS_FULFILLED = 'LOCATIONPICS_FULFILLED';
+export const LOCATIONPICS_REJECTED = 'LOCATIONPICS_REJECTED';
+
 export function locationList(data) {
   return async (dispatch) => {
     try {
@@ -69,6 +73,34 @@ export function locationDetail(lId) {
       console.log(e)
       dispatch({
         type: LOCATIONDETAIL_REJECTED,
+        payload:  e,
+      });
+    }
+  };
+}
+
+export function locationPics(lId) {
+  console.log(lId)
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: LOCATIONPICS_PENDING,
+      });
+      var ls = require('react-native-local-storage');
+      let token = ls.get('token').then((data) => data);
+      let response = await axios.get(
+        `https://travelify-backend.herokuapp.com/locations/${lId}/photos`,{headers:{Cookie: "jwt="+token}}
+      );;
+           
+        console.log(response.data)
+      dispatch({
+        type: LOCATIONPICS_FULFILLED,
+        payload: response.data,
+      });
+    } catch (e) {
+      console.log(e)
+      dispatch({
+        type: LOCATIONPICS_REJECTED,
         payload:  e,
       });
     }
