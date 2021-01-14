@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
 import {  IconButton, TextInput, Button } from 'react-native-paper';
 import MapView, { Marker, Callout} from 'react-native-maps';
 
 export default function Maps(props) {
-    const [region, setRegion] = useState({
-        latitude: 40.9758824,
-            longitude: 29.070668,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-    })
+    const [region, setRegion] = useState({})
+
+    useEffect(() => {
+  
+        setRegion({latitude: props.lat, longitude: props.long, latitudeDelta: 0.0922, longitudeDelta: 0.0421})
+      },[props])
       
       
       

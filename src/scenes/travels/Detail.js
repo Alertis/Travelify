@@ -37,7 +37,7 @@ export default function TravelDetail({route, navigation}) {
      );
      
      const MapRoute = () => (
-         <Maps />
+         <Maps lat={detail.length > 0 ? parseFloat(detail[0].lat) : 0} long={ detail.length > 0 ? parseFloat(detail[0].long) : 0} />
      );
    
     const renderScene = SceneMap({
