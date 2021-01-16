@@ -1,5 +1,5 @@
 import { LOCATIONLIST_FULFILLED, LOCATIONLIST_PENDING, LOCATIONLIST_REJECTED, LOCATIONDETAIL_FULFILLED, LOCATIONDETAIL_REJECTED, LOCATIONDETAIL_PENDING,
-LOCATIONPICS_FULFILLED, LOCATIONPICS_PENDING, LOCATIONPICS_REJECTED } from './action';
+LOCATIONPICS_FULFILLED, LOCATIONPICS_PENDING, LOCATIONPICS_REJECTED,ADDCOMMENT_FULFILLED,ADDCOMMENT_PENDING, ADDCOMMENT_REJECTED } from './action';
 
 const initialState = {
     detail:{},
@@ -76,6 +76,25 @@ export default (state = initialState, action) => {
                 loading : false,
                 reject: true,
                 photos: [],
+                errMsg: action.payload,
+            }
+            case ADDCOMMENT_PENDING:
+            return{
+                ...state,
+                loading : true,
+                reject: false,
+            }
+        case ADDCOMMENT_FULFILLED:
+            return{
+                ...state,
+                loading : false,
+                reject: false,
+            }
+        case ADDCOMMENT_REJECTED:
+            return{
+                ...state,
+                loading : false,
+                reject: true,
                 errMsg: action.payload,
             }
         default:

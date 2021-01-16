@@ -13,6 +13,10 @@ export const LOCATIONPICS_PENDING = 'LOCATIONPICS_PENDING';
 export const LOCATIONPICS_FULFILLED = 'LOCATIONPICS_FULFILLED';
 export const LOCATIONPICS_REJECTED = 'LOCATIONPICS_REJECTED';
 
+export const ADDCOMMENT_PENDING = 'ADDCOMMENT_PENDING';
+export const ADDCOMMENT_FULFILLED = 'ADDCOMMENT_FULFILLED';
+export const ADDCOMMENT_REJECTED = 'ADDCOMMENT_REJECTED';
+
 export function locationList(data) {
   return async (dispatch) => {
     try {
@@ -101,6 +105,36 @@ export function locationPics(lId) {
       rejectApp()
       dispatch({
         type: LOCATIONPICS_REJECTED,
+        payload:  e,
+      });
+    }
+  };
+}
+
+export function addComment(data) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: ADDCOMMENT_PENDING,
+      });
+      var ls = require('react-native-local-storage');
+      let token = ls.get('token').then((data) => data);
+      let username = ls.get('username').then((data) => data);
+
+      console.log(token, data)
+      let response = await axios.post(
+        `https://travelify-backend.herokuapp.com/locations/${data.lId}/comments`, data, {headers:{Cookie: "jwt="+token}}
+      );
+      console.log("add comment", response)
+      dispatch({
+        type: ADDCOMMENT_FULFILLED,
+        payload: response.data,
+      });
+    } catch (e) {
+      console.log(e)
+      rejectApp()
+      dispatch({
+        type: ADDCOMMENT_REJECTED,
         payload:  e,
       });
     }

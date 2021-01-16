@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
 import {  IconButton, TextInput } from 'react-native-paper';
+import { addComment } from '../../../middlewares/locations/action'
+import {useSelector, useDispatch} from 'react-redux'
+var ls = require('react-native-local-storage');
 
 export default function Comments(props) {
+    const [comment, setComment] = useState("")
+    const dispatch = useDispatch();
+    const login = useSelector(state => state.User.login)
+    
+    const sendComment = () => {
+        let username = login.username
+        console.log(login)
+        dispatch(addComment({comment,username,lId: props.data._id}))
+    }
   return (
     <ScrollView style={styles.content}>
         <View style={styles.commentInput}>
@@ -19,12 +31,13 @@ export default function Comments(props) {
                     
                     }
                 }}
+                onChangeText={ val => setComment(val)}
             />
             <IconButton
                 icon="send"
                 size={24}
                 color="#fff"
-                onPress={() => console.log('Pressed')}
+                onPress={() => sendComment()}
             />
         </View>
        

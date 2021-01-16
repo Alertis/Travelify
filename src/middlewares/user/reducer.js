@@ -46,10 +46,6 @@ export default (state = initialState, action) => {
                 login: {}
             }
         case LOGIN_FULFILLED:
-            ls.save('username', action.payload.username)
-             ls.save('token', action.payload.token)
-             ls.save('userId', action.payload.userId)
-            ls.save('role', action.payload.role)
             return{
                 ...state,
                 loading : false,

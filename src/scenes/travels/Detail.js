@@ -29,7 +29,7 @@ export default function TravelDetail({route, navigation}) {
     ]);
 
     const CommentRoute = () => (
-        <Comments comment={detail.length > 0 ? detail[0].comments : []} />
+        <Comments comment={detail.length > 0 ? detail[0].comments : []} data={detail.length > 0 ? detail[0] : {}} />
        );
         
      const GalleryRoute = () => (
@@ -62,8 +62,9 @@ export default function TravelDetail({route, navigation}) {
     },[route])
   return (
     <Background>
-        <Button style={styles.loading} loading={loading}></Button>
-        <View style={styles.container} >
+        {loading ? <Button style={styles.loading} loading={loading}></Button> : 
+        <>
+            <View style={styles.container} >
             <View style={styles.leftIcons}>
                 <IconButton
                     icon="arrow-left"
@@ -113,6 +114,8 @@ export default function TravelDetail({route, navigation}) {
            
         
         </View>
+        </>}
+        
     </Background>
   );
 }

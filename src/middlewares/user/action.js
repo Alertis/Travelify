@@ -14,10 +14,6 @@ export function rejectApp(){
     dispatch({
       type: USER_DELETE,
     });
-    ls.remove('username')
-    ls.remove('token')
-    ls.remove('userId')
-    ls.remove('role')
   }
  
 }

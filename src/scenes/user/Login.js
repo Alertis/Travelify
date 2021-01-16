@@ -52,9 +52,13 @@ export default function Login({ navigation }) {
               {errorMessage}
             </Snackbar>
             <Snackbar
-            visible={login}
+            visible={login && Object.keys(login).length>0}
             onDismiss={() => {
               navigation.navigate('TabNavigation');
+              ls.save('username', login.username)
+              ls.save('token', login.token)
+              ls.save('userId', login.userId)
+             ls.save('role', login.role)
             }}
             duration={100}
             style={{backgroundColor: "green"}}
