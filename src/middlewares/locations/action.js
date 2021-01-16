@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { rejectApp } from "../user/action";
 
 export const LOCATIONLIST_PENDING = 'LOCATIONLIST_PENDING';
 export const LOCATIONLIST_FULFILLED = 'LOCATIONLIST_FULFILLED';
@@ -41,7 +42,7 @@ export function locationList(data) {
         payload: response.data,
       });
     } catch (e) {
-      console.log(e)
+      rejectApp()
       dispatch({
         type: LOCATIONLIST_REJECTED,
         payload:  e,
@@ -70,7 +71,7 @@ export function locationDetail(lId) {
         payload: response.data,
       });
     } catch (e) {
-      console.log(e)
+      rejectApp()
       dispatch({
         type: LOCATIONDETAIL_REJECTED,
         payload:  e,
@@ -80,7 +81,6 @@ export function locationDetail(lId) {
 }
 
 export function locationPics(lId) {
-  console.log(lId)
   return async (dispatch) => {
     try {
       dispatch({
@@ -98,7 +98,7 @@ export function locationPics(lId) {
         payload: response.data,
       });
     } catch (e) {
-      console.log(e)
+      rejectApp()
       dispatch({
         type: LOCATIONPICS_REJECTED,
         payload:  e,

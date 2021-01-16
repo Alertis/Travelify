@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
-import {  IconButton,  } from 'react-native-paper';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import {  IconButton, Button  } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {locationList} from '../../middlewares/locations/action'
@@ -24,7 +24,6 @@ export default function ListTravel( { route, navigation }) {
         params.category = route.params.categoryId
 
         dispatch(locationList(params))
-    console.log(route.params)
   },[route])
   
   function locationDetail(id){
@@ -34,7 +33,7 @@ export default function ListTravel( { route, navigation }) {
   }
   return (
     <Background>
-        <Text> {loading ? "yükleniyor": "yüklendi"} </Text>
+        <Button style={styles.loading} loading={loading}></Button>
         <IconButton
           icon="arrow-left"
           style={styles.container}
@@ -95,5 +94,8 @@ const styles = StyleSheet.create({
     },
     icon:{
         flex: 1,
+    },
+    loading:{
+        position: "absolute"
     }
 });

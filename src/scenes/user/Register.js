@@ -18,6 +18,7 @@ export default function Register({ navigation}) {
   const register = useSelector(state => state.User.register)
   const errMsg = useSelector(state => state.User.errMsg)
   const valid = useSelector(state => state.User.valid)
+  const loading = useSelector(state => state.User.loading)
 
 
   const onRegister = () => {
@@ -32,6 +33,7 @@ export default function Register({ navigation}) {
   })
   return (
     <Background>
+        {loading ? <Button loading={loading} /> : <> 
         <IconButton
           icon="arrow-left"
           style={styles.container}
@@ -53,6 +55,7 @@ export default function Register({ navigation}) {
           visible={Object.keys(register).length > 0}
           onDismiss={() => navigation.navigate('login')}
           style={{backgroundColor: "green"}}
+          duration={100}
         >
           Kayıt Başarı ile oluşturuldu giriş sayfasına yönlendiriliyorsunuz
         </Snackbar>
@@ -80,6 +83,7 @@ export default function Register({ navigation}) {
               <Text style={styles.link}> Giriş Yap </Text>
           </TouchableOpacity>
         </View>
+        </> }
     </Background>
   );
 }
@@ -133,4 +137,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: 12,
   },
+  loading:{
+    position: "absolute"
+}
 });

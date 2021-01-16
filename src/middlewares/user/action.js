@@ -8,6 +8,19 @@ export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_FULFILLED = 'LOGIN_FULFILLED';
 export const LOGIN_REJECTED = 'LOGIN_REJECTED';
 
+export function rejectApp(){
+  console.log("reject")
+  return async (dispatch) => {
+    dispatch({
+      type: USER_DELETE,
+    });
+    ls.remove('username')
+    ls.remove('token')
+    ls.remove('userId')
+    ls.remove('role')
+  }
+ 
+}
 export function register(data) {
   return async (dispatch) => {
     try {
@@ -24,6 +37,7 @@ export function register(data) {
         payload: response.data,
       });
     } catch (e) {
+     rejectApp()
       dispatch({
         type: REGISTER_REJECTED,
         payload:  e,
@@ -34,7 +48,9 @@ export function register(data) {
 
 export function login(data) {
   return async (dispatch) => {
+    console.log("start")
     try {
+    console.log("pending")
       dispatch({
         type: LOGIN_PENDING,
       });
@@ -42,12 +58,14 @@ export function login(data) {
         `https://travelify-backend.herokuapp.com/login`,
         data,
       );
+    console.log(response.data)
 
       dispatch({
         type: LOGIN_FULFILLED,
         payload: response.data,
       });
     } catch (e) {
+      rejectApp()
       dispatch({
         type: LOGIN_REJECTED,
         payload:  e,

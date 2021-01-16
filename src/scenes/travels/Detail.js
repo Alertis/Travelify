@@ -3,7 +3,7 @@ import Comments from './components/Comments'
 import Gallery from './components/Gallery'
 import Maps from './components/Maps'
 import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
-import {  IconButton,  } from 'react-native-paper';
+import {  IconButton, Button } from 'react-native-paper';
 import Background from '../../components/Background'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import {useSelector, useDispatch} from 'react-redux'
@@ -23,7 +23,7 @@ export default function TravelDetail({route, navigation}) {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
-      { key: 'pictures', title: 'Fotoğraflar' },
+      { key: 'pictures', title: 'Fotoğraf' },
       { key: 'maps', title: 'Harita' },
 
     ]);
@@ -62,7 +62,7 @@ export default function TravelDetail({route, navigation}) {
     },[route])
   return (
     <Background>
-        {console.log('detail:',photos)}
+        <Button style={styles.loading} loading={loading}></Button>
         <View style={styles.container} >
             <View style={styles.leftIcons}>
                 <IconButton
@@ -159,5 +159,8 @@ const styles = StyleSheet.create({
     },
     tabs:{
         height:'70%'
+    },
+    loading:{
+        position: "absolute"
     }
 });

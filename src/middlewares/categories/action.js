@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { rejectApp } from '../user/action'
 export const CATEGORYLIST_PENDING = 'CATEGORYLIST_PENDING';
 export const CATEGORYLIST_FULFILLED = 'CATEGORYLIST_FULFILLED';
 export const CATEGORYLIST_REJECTED = 'CATEGORYLIST_REJECTED';
@@ -24,6 +24,7 @@ export function categoryList(data) {
         payload: response.data,
       });
     } catch (e) {
+      rejectApp()
       dispatch({
         type: CATEGORYLIST_REJECTED,
         payload:  e,

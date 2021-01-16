@@ -151,9 +151,11 @@
     <orderEntry type="module" module-name="travelify2.unimodules-font-interface" />
     <orderEntry type="module" module-name="travelify2.unimodules-sensors-interface" />
     <orderEntry type="module" module-name="travelify2.unimodules-task-manager-interface" />
+    <orderEntry type="module" module-name="travelify2.react-native-community_masked-view" />
     <orderEntry type="module" module-name="travelify2.react-native-gesture-handler" />
     <orderEntry type="module" module-name="travelify2.react-native-maps" />
     <orderEntry type="module" module-name="travelify2.react-native-reanimated" />
+    <orderEntry type="module" module-name="travelify2.react-native-safe-area-context" />
     <orderEntry type="module" module-name="travelify2.react-native-screens" />
     <orderEntry type="module" module-name="travelify2.react-native-vector-icons" />
   </component>

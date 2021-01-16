@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView} from 'react-native';
-import { Searchbar, Surface, IconButton,  } from 'react-native-paper';
+import { Searchbar, Surface, IconButton, Button } from 'react-native-paper';
 import Background from '../../components/Background'
 import {useSelector, useDispatch} from 'react-redux'
 import {categoryList} from '../../middlewares/categories/action'
@@ -38,6 +38,7 @@ export default function Main({ navigation }) {
 
   return (
     <Background>
+        <Button style={styles.loading} loading={loading}></Button>
         <Searchbar style={styles.searchBar} placeholder="Search" onChangeText={ query => setSearchQuery(query)} value={searchQuery} onIconPress={searchLocation} />
         <ScrollView style={styles.scrlCategory} >
             <View style={styles.categoryBox}>
@@ -90,5 +91,8 @@ const styles = StyleSheet.create({
     text:{
         color: '#fff',
         fontSize: 18
+    },
+    loading:{
+        position: "absolute"
     }
 });
