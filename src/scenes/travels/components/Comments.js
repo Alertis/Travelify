@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
-import {  IconButton, TextInput, Button } from 'react-native-paper';
+import {  IconButton, TextInput } from 'react-native-paper';
 
-export default function Comments() {
+export default function Comments(props) {
   return (
     <ScrollView style={styles.content}>
         <View style={styles.commentInput}>
@@ -29,90 +29,22 @@ export default function Comments() {
         </View>
        
         <View style={styles.comments} >
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
-                <View style={styles.comment}>
-                    <View>
-                        <IconButton
-                            icon="chat-outline"
-                            size={32}
-                            color="#fff"
-                            onPress={() => console.log('Pressed')}
-                        />
-                    </View>
-                    <View>
-                        <Text style={styles.title}> Osman Yavuz Demir </Text>
-                        <Text style={styles.description}> Güzel ve bi o kadar da eğelenceli bir yer.  </Text>
-                    </View>
-                </View>    
+            {props.comment.map((comment) =>{
+                return  <View style={styles.comment}>
+                <View>
+                    <IconButton
+                        icon="chat-outline"
+                        size={32}
+                        color="#fff"
+                        onPress={() => console.log('Pressed')}
+                    />
+                </View>
+                <View>
+                    <Text style={styles.title}> {comment.username} </Text>
+                    <Text style={styles.description}> {comment.comment}  </Text>
+                </View>
+            </View>   
+            })}
 
         
         </View>

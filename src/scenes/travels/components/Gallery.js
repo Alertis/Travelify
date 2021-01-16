@@ -7,8 +7,6 @@ export default function Gallery(props) {
   const [photos, setPhotos] = useState([])
     useEffect(() => {
       let imageURLs= [];
-      console.log(props.images.photos )
-
       props.images.photos && props.images.photos.map( (img, index) => {
         console.log("resim", img, props )
         imageURLs.push(

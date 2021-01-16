@@ -29,7 +29,7 @@ export default function TravelDetail({route, navigation}) {
     ]);
 
     const CommentRoute = () => (
-        <Comments />
+        <Comments comment={detail.length > 0 ? detail[0].comments : []} />
        );
         
      const GalleryRoute = () => (
