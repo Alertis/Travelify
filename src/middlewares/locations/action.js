@@ -29,6 +29,10 @@ export const DELETELOCATION_PENDING = 'DELETELOCATION_PENDING';
 export const DELETELOCATION_FULFILLED = 'DELETELOCATION_FULFILLED';
 export const DELETELOCATION_REJECTED = 'DELETELOCATION_REJECTED';
 
+export const ADDPHOTO_PENDING = 'ADDPHOTO_PENDING';
+export const ADDPHOTO_FULFILLED = 'ADDPHOTO_FULFILLED';
+export const ADDPHOTO_REJECTED = 'ADDPHOTO_REJECTED';
+
 export function locationList(data) {
   return async (dispatch) => {
     try {
@@ -236,6 +240,35 @@ export function deleteLocation(data) {
       rejectApp()
       dispatch({
         type: DELETELOCATION_REJECTED,
+        payload:  e,
+      });
+    }
+  };
+}
+
+export function addPhoto(data) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: ADDPHOTO_PENDING,
+      });
+      var ls = require('react-native-local-storage');
+      let token = ls.get('token').then((data) => data);
+      console.log("photo data", data._parts[1][1])
+
+      let response = await axios.post(
+        `https://travelify-backend.herokuapp.com/locations/${data._parts[1][1]}/photos`, data, {headers:{Cookie: "jwt="+token,'Content-Type': 'multipart/form-data; '}}
+      );
+      dispatch({
+        type: ADDPHOTO_FULFILLED,
+        payload: response.data,
+      });
+    
+    } catch (e) {
+      console.log(e)
+      rejectApp()
+      dispatch({
+        type: ADDPHOTO_REJECTED,
         payload:  e,
       });
     }

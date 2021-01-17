@@ -27,6 +27,8 @@ target 'travelify2' do
 
   pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   post_install do |installer|
     flipper_post_install(installer)
   end

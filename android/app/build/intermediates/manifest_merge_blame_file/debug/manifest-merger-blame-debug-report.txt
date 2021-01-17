@@ -96,7 +96,7 @@
 43        android:allowBackup="false"
 43-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:29:5-32
 44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-44-->[androidx.core:core:1.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/639e914bfc1efa21e36199d3ff2c5eef/core-1.1.0/AndroidManifest.xml:24:18-86
+44-->[androidx.core:core:1.3.1] /home/alertis/.gradle/caches/transforms-2/files-2.1/4f3e3536c8bf9e8cb1939d2a5eeaba3a/core-1.3.1/AndroidManifest.xml:24:18-86
 45        android:debuggable="true"
 46        android:icon="@mipmap/ic_launcher"
 46-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:27:5-39
@@ -165,76 +165,93 @@
 79-->[:unimodules-react-native-adapter] /home/alertis/Projeler/travelify/node_modules/@unimodules/react-native-adapter/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-88
 80
 81        <provider
-81-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-26:20
-82            android:name="expo.modules.filesystem.FileSystemFileProvider"
-82-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-74
-83            android:authorities="com.travelify2.FileSystemFileProvider"
-83-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-74
+81-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-20:20
+82            android:name="com.imagepicker.ImagePickerProvider"
+82-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-63
+83            android:authorities="com.travelify2.imagepickerprovider"
+83-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-71
 84            android:exported="false"
-84-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-37
+84-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-37
 85            android:grantUriPermissions="true" >
-85-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-47
+85-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-47
 86            <meta-data
-86-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:13-25:70
+86-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:70
 87                android:name="android.support.FILE_PROVIDER_PATHS"
-87-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:17-67
-88                android:resource="@xml/file_system_provider_paths" />
-88-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-67
+87-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
+88                android:resource="@xml/imagepicker_provider_paths" />
+88-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-67
 89        </provider>
-90
-91        <service
-91-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-19:40
-92            android:name="expo.modules.location.services.LocationTaskService"
-92-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-78
-93            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
-93-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-37
-94        <uses-library
-94-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-95            android:name="org.apache.http.legacy"
-95-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-96            android:required="false" />
-96-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-97
-98        <activity
-98-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-99            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-99-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-100            android:exported="false"
-100-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-101            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-101-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-102
-103        <meta-data
-103-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-104            android:name="com.google.android.gms.version"
-104-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-105            android:value="@integer/google_play_services_version" />
-105-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-106
-107        <service
-107-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:25:9-27:40
-108            android:name="androidx.room.MultiInstanceInvalidationService"
-108-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:26:13-74
-109            android:exported="false" />
-109-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:27:13-37
-110        <service
-110-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
-111            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
-111-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
-112            android:exported="false" />
-112-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
-113        <service
-113-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
-114            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
-114-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
-115            android:exported="false" />
-115-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
-116        <service
-116-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
-117            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
-117-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
-118            android:exported="false" />
-118-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
-119    </application>
-120
-121</manifest>
+90        <provider
+90-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-26:20
+91            android:name="expo.modules.filesystem.FileSystemFileProvider"
+91-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-74
+92            android:authorities="com.travelify2.FileSystemFileProvider"
+92-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-74
+93            android:exported="false"
+93-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-37
+94            android:grantUriPermissions="true" >
+94-->[:expo-file-system] /home/alertis/Projeler/travelify/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-47
+95            <meta-data
+95-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:70
+96                android:name="android.support.FILE_PROVIDER_PATHS"
+96-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-67
+97                android:resource="@xml/file_system_provider_paths" />
+97-->[:react-native-image-picker] /home/alertis/Projeler/travelify/node_modules/react-native-image-picker/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:17-67
+98        </provider>
+99
+100        <service
+100-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-19:40
+101            android:name="expo.modules.location.services.LocationTaskService"
+101-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-78
+102            android:exported="false" />
+102-->[:expo-location] /home/alertis/Projeler/travelify/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-37
+103        <service
+103-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:25:9-27:40
+104            android:name="androidx.room.MultiInstanceInvalidationService"
+104-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:26:13-74
+105            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+105-->[androidx.room:room-runtime:2.1.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/5f7132f69994fe4e2c8f322e81b3f8c9/room-runtime-2.1.0/AndroidManifest.xml:27:13-37
+106        <uses-library
+106-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+107            android:name="org.apache.http.legacy"
+107-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+108            android:required="false" />
+108-->[com.google.android.gms:play-services-maps:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/3ca81724f46a1af5d268488a528eb8e5/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+109
+110        <activity
+110-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+111-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+112            android:exported="false"
+112-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+113-->[com.google.android.gms:play-services-base:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+114
+115        <meta-data
+115-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+116            android:name="com.google.android.gms.version"
+116-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+117            android:value="@integer/google_play_services_version" />
+117-->[com.google.android.gms:play-services-basement:17.0.0] /home/alertis/.gradle/caches/transforms-2/files-2.1/a31e6f8384d42537de935c3aade31454/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+118
+119        <service
+119-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
+120            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+120-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
+121            android:exported="false" />
+121-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
+122        <service
+122-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
+123            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+123-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
+124            android:exported="false" />
+124-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
+125        <service
+125-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
+126            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+126-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
+127            android:exported="false" />
+127-->[io.nlopez.smartlocation:library:3.2.11] /home/alertis/.gradle/caches/transforms-2/files-2.1/cafd33f3ded89af99daa855991ce4497/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
+128    </application>
+129
+130</manifest>

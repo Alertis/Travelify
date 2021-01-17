@@ -11,6 +11,7 @@ import {locationDetail, locationPics} from '../../middlewares/locations/action'
 import AddLocationModal from './modals/AddLocation'
 import EditLocationModal from './modals/EditLocation'
 import DeleteLocationModal from './modals/DeleteLocation'
+import AddPhotoModal from './modals/AddPhoto'
 
 var ls = require('react-native-local-storage');
 
@@ -27,7 +28,7 @@ export default function TravelDetail({route, navigation}) {
     const [addModal, setAddModal] = React.useState(false);
     const [editModal, setEditModal] = React.useState(false);
     const [deleteModal, setDeleteModal] = React.useState(false);
-
+    const [addPhotoModal, setAddPhotoModal] = React.useState(false);
 
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
@@ -106,7 +107,7 @@ export default function TravelDetail({route, navigation}) {
                     icon="camera-plus"
                     size={20}
                     color="#600EE6"
-                    onPress={() => setAddModal(true)}
+                    onPress={() => setAddPhotoModal(true)}
                 />
                 <IconButton
                     icon="trash-can-outline"
@@ -139,7 +140,7 @@ export default function TravelDetail({route, navigation}) {
         <AddLocationModal  visible={addModal} setVisible={setAddModal} />
         <EditLocationModal  visible={editModal} setVisible={setEditModal} data={detail} />
         <DeleteLocationModal  visible={deleteModal} setVisible={setDeleteModal} data={detail} goRoute={goMainRoute} />
-
+        <AddPhotoModal  visible={addPhotoModal} setVisible={setAddPhotoModal} data={detail} />
     </Background>
   );
 }

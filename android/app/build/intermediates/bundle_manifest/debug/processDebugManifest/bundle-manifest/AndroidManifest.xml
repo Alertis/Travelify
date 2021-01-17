@@ -79,6 +79,15 @@
             android:value="org.unimodules.adapters.react.apploader.RNHeadlessAppLoader" />
 
         <provider
+            android:name="com.imagepicker.ImagePickerProvider"
+            android:authorities="com.travelify2.imagepickerprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/imagepicker_provider_paths" />
+        </provider>
+        <provider
             android:name="expo.modules.filesystem.FileSystemFileProvider"
             android:authorities="com.travelify2.FileSystemFileProvider"
             android:exported="false"
@@ -90,6 +99,9 @@
 
         <service
             android:name="expo.modules.location.services.LocationTaskService"
+            android:exported="false" />
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
             android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"
@@ -104,9 +116,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:exported="false" />
         <service
             android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
             android:exported="false" />
