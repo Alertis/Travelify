@@ -33,7 +33,7 @@
     <meta-data android:name="expo.modules.updates.EXPO_SDK_VERSION" android:value="YOUR-APP-SDK-VERSION-HERE"/>
     <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="${mapsApiKey}" />
+        android:value="AIzaSyCgbKilqEjnzUREvvqUib9VgEbVI6RE8ro" />
     <activity
       android:name=".MainActivity"
       android:label="@string/app_name"

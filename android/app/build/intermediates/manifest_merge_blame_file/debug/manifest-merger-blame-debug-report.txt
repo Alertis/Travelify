@@ -122,8 +122,11 @@
 57            android:value="YOUR-APP-SDK-VERSION-HERE" />
 57-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:33:69-110
 58        <meta-data
+58-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:34:5-36:67
 59            android:name="com.google.android.geo.API_KEY"
+59-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:35:9-54
 60            android:value="AIzaSyCgbKilqEjnzUREvvqUib9VgEbVI6RE8ro" />
+60-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:36:9-64
 61
 62        <activity
 62-->/home/alertis/Projeler/travelify/android/app/src/main/AndroidManifest.xml:37:5-49:16

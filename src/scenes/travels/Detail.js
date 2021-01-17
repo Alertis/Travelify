@@ -3,12 +3,12 @@ import Comments from './components/Comments'
 import Gallery from './components/Gallery'
 import Maps from './components/Maps'
 import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native';
-import {  IconButton, Button } from 'react-native-paper';
+import {  IconButton, Button, Portal,Modal } from 'react-native-paper';
 import Background from '../../components/Background'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import {useSelector, useDispatch} from 'react-redux'
 import {locationDetail, locationPics} from '../../middlewares/locations/action'
-
+import AddLocationModal from './modals/AddLocation'
 var ls = require('react-native-local-storage');
 
 
@@ -21,6 +21,7 @@ export default function TravelDetail({route, navigation}) {
     const loading = useSelector(state => state.Locations.loading)
     
     const [index, setIndex] = React.useState(0);
+    const [addModal, setAddModal] = React.useState(true);
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
       { key: 'pictures', title: 'Fotoğraf' },
@@ -61,10 +62,14 @@ export default function TravelDetail({route, navigation}) {
 
     },[route])
   return (
+     
     <Background>
+        
         {loading ? <Button style={styles.loading} loading={loading}></Button> : 
         <>
+         
             <View style={styles.container} >
+               
             <View style={styles.leftIcons}>
                 <IconButton
                     icon="arrow-left"
@@ -115,7 +120,7 @@ export default function TravelDetail({route, navigation}) {
         
         </View>
         </>}
-        
+        <AddLocationModal  visible={true} setVisible={setAddModal} />
     </Background>
   );
 }

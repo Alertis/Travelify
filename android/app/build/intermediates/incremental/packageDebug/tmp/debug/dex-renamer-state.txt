@@ -1,5 +1,7 @@
-#Sun Jan 10 21:00:36 EET 2021
+#Sun Jan 17 16:30:48 EET 2021
 base.10=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_15.dex
+path.36=classes_33.dex
+path.35=classes_32.dex
 path.34=classes_31.dex
 path.33=classes_30.dex
 path.32=classes_9.dex
@@ -30,7 +32,9 @@ path.7=classes_12.dex
 path.20=classes_24.dex
 path.6=classes_11.dex
 path.5=classes_10.dex
+renamed.36=classes37.dex
 path.4=classes_1.dex
+renamed.35=classes36.dex
 path.3=classes_0.dex
 renamed.34=classes35.dex
 path.2=classes2.dex
@@ -80,6 +84,8 @@ renamed.13=classes14.dex
 renamed.12=classes13.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
+base.36=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_33.dex
+base.35=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_32.dex
 base.34=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_31.dex
 base.33=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_30.dex
 base.32=/home/alertis/Projeler/travelify/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_9.dex

@@ -21,6 +21,10 @@ target 'travelify2' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'ReactNativeGetLocation', :path => '../node_modules/react-native-get-location'
+
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   post_install do |installer|
     flipper_post_install(installer)
   end
