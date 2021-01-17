@@ -75,7 +75,7 @@ export default function Login({ navigation }) {
 
             </View>
             <View style={styles.forgotPassword}>
-              <Button icon="camera" color="#414757" mode="text" onPress={() => navigation.navigate('restorePass')}>
+              <Button icon="lock-reset" color="#414757" mode="text" onPress={() => navigation.navigate('restorePass')}>
                   <Text style={styles.label}>Şifremi Unuttum</Text>
               </Button>
             </View>

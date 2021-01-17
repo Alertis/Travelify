@@ -18,6 +18,8 @@ import Register from './src/scenes/user/Register'
 import RestorePass from './src/scenes/user/RestorePass'
 import TravelDetail from './src/scenes/travels/Detail'
 import Main from './src/scenes/main/Main'
+import Settings from './src/scenes/settings/Settings'
+
 
 import Icon from 'react-native-ionicons'
 
@@ -65,7 +67,7 @@ const tabNavigation = () => {
     }}>
       <Tab.Screen name="main" component={Main} options={{headerShown: false}}  />
       <Tab.Screen name="locations" component={ListTravel} options={{headerShown: false}} />
-      <Tab.Screen name="setting" component={TravelDetail} options={{headerShown: false}} />
+      <Tab.Screen name="setting" component={Settings} options={{headerShown: false}} />
     </Tab.Navigator>
   )
 }
