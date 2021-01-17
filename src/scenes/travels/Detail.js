@@ -10,6 +10,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {locationDetail, locationPics} from '../../middlewares/locations/action'
 import AddLocationModal from './modals/AddLocation'
 import EditLocationModal from './modals/EditLocation'
+import DeleteLocationModal from './modals/DeleteLocation'
 
 var ls = require('react-native-local-storage');
 
@@ -25,6 +26,8 @@ export default function TravelDetail({route, navigation}) {
     const [index, setIndex] = React.useState(0);
     const [addModal, setAddModal] = React.useState(false);
     const [editModal, setEditModal] = React.useState(false);
+    const [deleteModal, setDeleteModal] = React.useState(false);
+
 
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
@@ -44,7 +47,9 @@ export default function TravelDetail({route, navigation}) {
      const MapRoute = () => (
          <Maps lat={detail.length > 0 ? parseFloat(detail[0].lat) : 0} long={ detail.length > 0 ? parseFloat(detail[0].long) : 0} />
      );
-   
+     const goMainRoute = () => {
+        navigation.navigate('TabNavigation', { screen: 'locations', params:{} })
+     }
     const renderScene = SceneMap({
       comments: CommentRoute,
       pictures: GalleryRoute,
@@ -107,7 +112,7 @@ export default function TravelDetail({route, navigation}) {
                     icon="trash-can-outline"
                     size={20}
                     color="#600EE6"
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => setDeleteModal(true)}
                 />
             </View>
         </View>
@@ -133,6 +138,7 @@ export default function TravelDetail({route, navigation}) {
         </>}
         <AddLocationModal  visible={addModal} setVisible={setAddModal} />
         <EditLocationModal  visible={editModal} setVisible={setEditModal} data={detail} />
+        <DeleteLocationModal  visible={deleteModal} setVisible={setDeleteModal} data={detail} goRoute={goMainRoute} />
 
     </Background>
   );
