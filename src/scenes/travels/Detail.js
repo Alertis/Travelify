@@ -9,6 +9,8 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import {useSelector, useDispatch} from 'react-redux'
 import {locationDetail, locationPics} from '../../middlewares/locations/action'
 import AddLocationModal from './modals/AddLocation'
+import EditLocationModal from './modals/EditLocation'
+
 var ls = require('react-native-local-storage');
 
 
@@ -22,6 +24,8 @@ export default function TravelDetail({route, navigation}) {
     
     const [index, setIndex] = React.useState(0);
     const [addModal, setAddModal] = React.useState(false);
+    const [editModal, setEditModal] = React.useState(false);
+
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
       { key: 'pictures', title: 'Fotoğraf' },
@@ -86,11 +90,18 @@ export default function TravelDetail({route, navigation}) {
                     color="#600EE6"
                     onPress={() => setAddModal(true)}
                 />
+                
                 <IconButton
                     icon="circle-edit-outline"
                     size={20}
                     color="#600EE6"
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => setEditModal(true)}
+                />
+                 <IconButton
+                    icon="camera-plus"
+                    size={20}
+                    color="#600EE6"
+                    onPress={() => setAddModal(true)}
                 />
                 <IconButton
                     icon="trash-can-outline"
@@ -121,6 +132,8 @@ export default function TravelDetail({route, navigation}) {
         </View>
         </>}
         <AddLocationModal  visible={addModal} setVisible={setAddModal} />
+        <EditLocationModal  visible={editModal} setVisible={setEditModal} data={detail} />
+
     </Background>
   );
 }

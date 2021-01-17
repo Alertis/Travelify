@@ -21,6 +21,10 @@ export const ADDLOCATION_PENDING = 'ADDLOCATION_PENDING';
 export const ADDLOCATION_FULFILLED = 'ADDLOCATION_FULFILLED';
 export const ADDLOCATION_REJECTED = 'ADDLOCATION_REJECTED';
 
+export const EDITLOCATION_PENDING = 'EDITLOCATION_PENDING';
+export const EDITLOCATION_FULFILLED = 'EDITLOCATION_FULFILLED';
+export const EDITLOCATION_REJECTED = 'EDITLOCATION_REJECTED';
+
 export function locationList(data) {
   return async (dispatch) => {
     try {
@@ -170,6 +174,35 @@ export function addLocation(data) {
       rejectApp()
       dispatch({
         type: ADDLOCATION_REJECTED,
+        payload:  e,
+      });
+    }
+  };
+}
+
+export function editLocation(data) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: EDITLOCATION_PENDING,
+      });
+      var ls = require('react-native-local-storage');
+      let token = ls.get('token').then((data) => data);
+      console.log(data)
+      let response = await axios.put(
+        `https://travelify-backend.herokuapp.com/locations/${data.id}`, data, {headers:{Cookie: "jwt="+token}}
+      );
+      dispatch({
+        type: EDITLOCATION_FULFILLED,
+        payload: response.data,
+      });
+      console.log(response.data)
+      
+    } catch (e) {
+      console.log(e)
+      rejectApp()
+      dispatch({
+        type: EDITLOCATION_REJECTED,
         payload:  e,
       });
     }
