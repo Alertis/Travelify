@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-picker/picker
+import com.reactnativecommunity.picker.RNCPickerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-get-location
@@ -76,6 +78,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new GeolocationPackage(),
       new RNCMaskedViewPackage(),
+      new RNCPickerPackage(),
       new RNGestureHandlerPackage(),
       new ReactNativeGetLocationPackage(),
       new MapsPackage(),

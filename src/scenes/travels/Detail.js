@@ -21,7 +21,7 @@ export default function TravelDetail({route, navigation}) {
     const loading = useSelector(state => state.Locations.loading)
     
     const [index, setIndex] = React.useState(0);
-    const [addModal, setAddModal] = React.useState(true);
+    const [addModal, setAddModal] = React.useState(false);
     const [routes] = React.useState([
       { key: 'comments', title: 'Yorumlar' },
       { key: 'pictures', title: 'Fotoğraf' },
@@ -84,7 +84,7 @@ export default function TravelDetail({route, navigation}) {
                     icon="layers-plus"
                     size={20}
                     color="#600EE6"
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => setAddModal(true)}
                 />
                 <IconButton
                     icon="circle-edit-outline"
@@ -120,7 +120,7 @@ export default function TravelDetail({route, navigation}) {
         
         </View>
         </>}
-        <AddLocationModal  visible={true} setVisible={setAddModal} />
+        <AddLocationModal  visible={addModal} setVisible={setAddModal} />
     </Background>
   );
 }

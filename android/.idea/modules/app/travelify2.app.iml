@@ -126,6 +126,8 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.nlopez.smartlocation:library:3.2.11@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
+    <orderEntry type="module" module-name="travelify2.react-native-community_geolocation" />
+    <orderEntry type="module" module-name="travelify2.react-native-picker_picker" />
     <orderEntry type="module" module-name="travelify2.expo-permissions" />
     <orderEntry type="module" module-name="travelify2.expo-constants" />
     <orderEntry type="module" module-name="travelify2.unimodules-image-loader-interface" />
@@ -153,6 +155,7 @@
     <orderEntry type="module" module-name="travelify2.unimodules-task-manager-interface" />
     <orderEntry type="module" module-name="travelify2.react-native-community_masked-view" />
     <orderEntry type="module" module-name="travelify2.react-native-gesture-handler" />
+    <orderEntry type="module" module-name="travelify2.react-native-get-location" />
     <orderEntry type="module" module-name="travelify2.react-native-maps" />
     <orderEntry type="module" module-name="travelify2.react-native-reanimated" />
     <orderEntry type="module" module-name="travelify2.react-native-safe-area-context" />

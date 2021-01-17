@@ -25,6 +25,8 @@ target 'travelify2' do
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
+
   post_install do |installer|
     flipper_post_install(installer)
   end
