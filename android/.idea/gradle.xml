@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/../node_modules/expo-updates/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-get-location/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-image-picker/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-maps/lib/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-reanimated/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-safe-area-context/android" />

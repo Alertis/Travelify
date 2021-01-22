@@ -5,7 +5,7 @@ import GetLocation from 'react-native-get-location'
 import Maps from '../components/Maps'
 import {useSelector, useDispatch} from 'react-redux'
 import {categoryList} from '../../../middlewares/categories/action'
-import {editLocation} from '../../../middlewares/locations/action'
+import {editLocation, locationDetail, locationPics} from '../../../middlewares/locations/action'
 
 import {Picker} from '@react-native-picker/picker';
 
@@ -27,6 +27,8 @@ export default function AddLocationModal(props) {
         setLocName("")
         setCountry("")
         setCategory("")
+        dispatch(locationDetail(props.data[0]._id))
+        dispatch(locationPics(props.data[0]._id))
         props.setVisible(false)
     }
 

@@ -70,7 +70,7 @@ export default function TravelDetail({route, navigation}) {
         dispatch(locationDetail(route.params.locationId))
         dispatch(locationPics(route.params.locationId))
 
-    },[route])
+    },[dispatch])
   return (
      
     <Background>

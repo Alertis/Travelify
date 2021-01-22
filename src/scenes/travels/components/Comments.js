@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, } from 'react-native';
 import {  IconButton, TextInput } from 'react-native-paper';
-import { addComment } from '../../../middlewares/locations/action'
+import { addComment, locationDetail, locationPics } from '../../../middlewares/locations/action'
 import {useSelector, useDispatch} from 'react-redux'
 var ls = require('react-native-local-storage');
 
@@ -14,6 +14,8 @@ export default function Comments(props) {
         let username = login.username
         console.log(login)
         dispatch(addComment({comment,username,lId: props.data._id}))
+        dispatch(locationDetail(props.data._id))
+        dispatch(locationPics(props.data._id))
     }
   return (
     <ScrollView style={styles.content}>

@@ -8,6 +8,10 @@ export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_FULFILLED = 'LOGIN_FULFILLED';
 export const LOGIN_REJECTED = 'LOGIN_REJECTED';
 
+export const RESTOREPASS_PENDING = 'RESTOREPASS_PENDING';
+export const RESTOREPASS_FULFILLED = 'RESTOREPASS_FULFILLED';
+export const RESTOREPASS_REJECTED = 'RESTOREPASS_REJECTED';
+
 export function rejectApp(){
   console.log("reject")
   return async (dispatch) => {
@@ -64,6 +68,30 @@ export function login(data) {
       rejectApp()
       dispatch({
         type: LOGIN_REJECTED,
+        payload:  e,
+      });
+    }
+  };
+}
+
+export function restorePass(data) {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: RESTOREPASS_PENDING,
+      });
+      const response = await axios.post(
+        `https://travelify-backend.herokuapp.com//forgot-password`,
+        data,
+      );
+      dispatch({
+        type: RESTOREPASS_FULFILLED,
+        payload: response.data,
+      });
+    } catch (e) {
+      rejectApp()
+      dispatch({
+        type: RESTOREPASS_REJECTED,
         payload:  e,
       });
     }

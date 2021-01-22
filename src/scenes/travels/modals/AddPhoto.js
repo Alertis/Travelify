@@ -3,7 +3,7 @@ import { StyleSheet, View, ScrollView, Image} from 'react-native';
 import { Modal, TextInput, Button } from 'react-native-paper';
 import Maps from '../components/Maps'
 import {useSelector, useDispatch} from 'react-redux'
-import {addPhoto} from '../../../middlewares/locations/action'
+import {addPhoto, locationDetail, locationPics} from '../../../middlewares/locations/action'
 import * as ImagePicker from 'react-native-image-picker';
 
 export default function AddLocationModal(props) {
@@ -35,6 +35,8 @@ export default function AddLocationModal(props) {
         data.append("id",  props.data[0]._id)
         console.log(photo)
         dispatch(addPhoto(data))
+        dispatch(locationDetail(props.data[0]._id))
+        dispatch(locationPics(props.data[0]._id))
         props.setVisible(false)
     }
 

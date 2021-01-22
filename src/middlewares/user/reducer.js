@@ -1,4 +1,5 @@
-import { REGISTER_FULFILLED, REGISTER_PENDING, REGISTER_REJECTED, LOGIN_PENDING, LOGIN_FULFILLED, LOGIN_REJECTED, USER_DELETE } from './action';
+import { REGISTER_FULFILLED, REGISTER_PENDING, REGISTER_REJECTED, LOGIN_PENDING, LOGIN_FULFILLED, LOGIN_REJECTED, USER_DELETE, RESTOREPASS_FULFILLED,
+RESTOREPASS_PENDING, RESTOREPASS_REJECTED} from './action';
 
 const initialState = {
     register: {},
@@ -61,6 +62,28 @@ export default (state = initialState, action) => {
                 login: {},
                 errMsg: action.payload,
                 valid: action.payload.response.data
+            }
+        case RESTOREPASS_PENDING:
+            return{
+                ...state,
+                loading : true,
+                reject: false,
+                restore: {}
+            }
+        case RESTOREPASS_FULFILLED:
+            return{
+                ...state,
+                loading : false,
+                reject: false,
+                restore: action.payload
+            }
+        case RESTOREPASS_REJECTED:
+            return{
+                ...state,
+                loading : false,
+                reject: true,
+                restore: {},
+                errMsg: action.payload
             }
             case USER_DELETE:
                 return{

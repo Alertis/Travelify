@@ -44,7 +44,7 @@ export function locationList(data) {
       let response;
       if(data.search){
         response = await axios.get(
-          `https://travelify-backend.herokuapp.com/locations/search/?name=`+search,{headers:{Cookie: "jwt="+token}}
+          `https://travelify-backend.herokuapp.com/locations/search/?name=`+data.search,{headers:{Cookie: "jwt="+token}}
         );
       } else if (data.category){
         response = await axios.get(
@@ -62,6 +62,7 @@ export function locationList(data) {
         payload: response.data,
       });
     } catch (e) {
+      console.log(e)
       rejectApp()
       dispatch({
         type: LOCATIONLIST_REJECTED,

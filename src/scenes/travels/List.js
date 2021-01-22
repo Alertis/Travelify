@@ -17,13 +17,13 @@ export default function ListTravel( { route, navigation }) {
   
 
   useEffect(() => {
-      let params = {}
-      if(route.params.search)
-        params.search = props.route.params.search
-      else 
-        params.category = route.params.categoryId
-
-        dispatch(locationList(params))
+    let params = {}
+    if(route.params.search)
+      params.search = route.params.search
+    else if(route.params.categoryId)
+      params.category = route.params.categoryId
+    console.log(route, params)
+    dispatch(locationList(params))
   },[route])
   
   function locationDetail(id){

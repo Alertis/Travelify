@@ -8,7 +8,7 @@ export default function Maps(props) {
 
     useEffect(() => {
   
-        setRegion({latitude: props.lat, longitude: props.long, latitudeDelta: 0.0922, longitudeDelta: 0.0421})
+        setRegion({latitude: parseFloat(props.lat), longitude: parseFloat(props.long), latitudeDelta: 0.0922, longitudeDelta: 0.0421})
       },[props])
       
       
